@@ -1,22 +1,20 @@
 @font-face {
-  font-family: 'CircularStd';
+  font-family: 'Panton';
   font-weight: 400;
   font-style: normal;
-  src: local('CircularStd'), url('CircularStd-Book.otf') format('opentype');
+  src: url('./Panton/Panton-Trial-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'CircularStd';
+  font-family: 'Panton';
   font-weight: 500;
   font-style: normal;
-  src: local('CircularStd'), url('CircularStd-Medium.otf') format('opentype');
+  src: url('./Panton/Panton-Trial-SemiBold.ttf');
 }
 
 @font-face {
-  font-family: 'CircularStd';
+  font-family: 'Panton';
   font-weight: 700;
   font-style: normal;
-  src: local('CircularStd'), url('CircularStd-Bold.otf') format('opentype');
+  src: url('./Panton/Panton-Trial-Bold.ttf');
 }
-
- 

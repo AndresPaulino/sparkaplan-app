@@ -24,19 +24,16 @@ export function responsiveFontSizes({ sm, md, lg }) {
   };
 }
 
-export const primaryFont = Public_Sans({
-  weight: ['400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap',
+export const primaryFont = {
+  fontFamily: 'Panton',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
-});
+};
 
-export const secondaryFont = Barlow({
-  weight: ['900'],
-  subsets: ['latin'],
-  display: 'swap',
+export const secondaryFont = {
+  fontFamily: 'Panton',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
-});
+};
+
 
 // ----------------------------------------------------------------------
 
@@ -44,7 +41,7 @@ export const secondaryFont = Barlow({
 // https://nextjs.org/docs/basic-features/font-optimization#google-fonts
 
 const typography = {
-  fontFamily: primaryFont.style.fontFamily,
+  fontFamily: primaryFont.fontFamily,
   fontWeightRegular: 400,
   fontWeightMedium: 600,
   fontWeightBold: 700,
