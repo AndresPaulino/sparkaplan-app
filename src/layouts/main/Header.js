@@ -52,16 +52,6 @@ export default function Header() {
         <Container sx={{ height: 1, display: 'flex', alignItems: 'center' }}>
           <Logo />
 
-          <Link
-            href={PATH_DOCS.changelog}
-            target="_blank"
-            rel="noopener"
-            underline="none"
-            sx={{ ml: 1 }}
-          >
-            <Label color="info"> v4.3.0 </Label>
-          </Link>
-
           <Box sx={{ flexGrow: 1 }} />
 
           {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}

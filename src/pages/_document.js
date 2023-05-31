@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" type="text/css" href="/fonts/index.css" />
 
           {/* PWA primary color */}
-          <meta name="theme-color" content={palette('light').primary.main} />
+          <meta name="theme-color" content={palette('light').primary.warning} />
 
           {/* Favicon */}
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
