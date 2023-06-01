@@ -50,7 +50,7 @@ export default function HomePage() {
 
         <HomeForDesigner />
 
-        <HomeDarkMode />
+        {/* <HomeDarkMode />
 
         <HomeColorPresets />
 
@@ -60,7 +60,7 @@ export default function HomePage() {
 
         <HomeLookingFor />
 
-        <HomeAdvertisement />
+        <HomeAdvertisement /> */}
       </Box>
     </>
   );
