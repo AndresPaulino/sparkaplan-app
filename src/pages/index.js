@@ -1,7 +1,7 @@
 // next
 import Head from 'next/head';
 // @mui
-import { Box } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 // layouts
 import MainLayout from '../layouts/main';
 // components
@@ -19,6 +19,8 @@ import {
   HomeCleanInterfaces,
   HomeHugePackElements,
 } from '../sections/home';
+
+import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../sections/about';
 
 // ----------------------------------------------------------------------
 
@@ -44,23 +46,18 @@ export default function HomePage() {
           bgcolor: 'background.default',
         }}
       >
+        
         <HomeMinimal />
 
-        <HomeHugePackElements />
+        <AboutWhat />
 
-        <HomeForDesigner />
+        <AboutVision />
 
-        {/* <HomeDarkMode />
+        <Divider orientation="vertical" sx={{ my: 10, mx: 'auto', width: 2, height: 40 }} />
 
-        <HomeColorPresets />
+        {/* <AboutTeam /> */}
 
-        <HomeCleanInterfaces />
-
-        <HomePricingPlans />
-
-        <HomeLookingFor />
-
-        <HomeAdvertisement /> */}
+        <AboutTestimonials />
       </Box>
     </>
   );
