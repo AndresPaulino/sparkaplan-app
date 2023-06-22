@@ -38,9 +38,9 @@ export default function NavAccount() {
             {user?.displayName}
           </Typography>
 
-          <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
+          {/* <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
             {user?.role}
-          </Typography>
+          </Typography> */}
         </Box>
       </StyledRoot>
     </Link>

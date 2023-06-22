@@ -10,7 +10,7 @@ import DashboardLayout from '../../../layouts/dashboard';
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 // sections
-import UserNewEditForm from '../../../sections/@dashboard/user/UserNewEditForm';
+import UserNewEditForm from '../../../sections/@dashboard_original/user/UserNewEditForm';
 
 // ----------------------------------------------------------------------
 
