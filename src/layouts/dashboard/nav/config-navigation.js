@@ -134,6 +134,11 @@ const navConfig = [
       //   icon: ICONS.chat,
       // },
       {
+        title: 'Generate Lesson',
+        path: PATH_DASHBOARD.generateLesson,
+        icon: ICONS.external,
+      },
+      {
         title: 'calendar',
         path: PATH_DASHBOARD.calendar,
         icon: ICONS.calendar,
