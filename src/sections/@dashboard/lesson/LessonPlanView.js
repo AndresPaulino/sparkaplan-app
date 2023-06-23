@@ -19,14 +19,14 @@ import PropTypes from 'prop-types';
 import { useAuthContext } from 'src/auth/useAuthContext';
 import LoadingIcon from 'src/components/loading-screen/LoadingIcon';
 import { useSettingsContext } from 'src/components/settings';
-import {
-  checkAudio,
-  generateAudio,
-  generateQuiz,
-  generateSlides,
-  getLessonPlan,
-  saveAudioFileLink,
-} from 'src/pages/api/Lesson';
+// import {
+//   checkAudio,
+//   generateAudio,
+//   generateQuiz,
+//   generateSlides,
+//   getLessonPlan,
+//   saveAudioFileLink,
+// } from 'src/pages/api/Lesson';
 import { useSnackbar } from '../../../components/snackbar';
 import { useDispatch } from '../../../redux/store';
 import { ModuleCard } from '../components';
