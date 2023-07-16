@@ -11,7 +11,7 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 import DashboardLayout from '../../../layouts/dashboard';
 // components
 import { useRouter } from 'next/router';
-import LessonPlanView from 'src/sections/@dashboard/lesson/LessonPlanView';
+import LessonPlan from 'src/sections/@dashboard/lesson/LessonPlan';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 import { useSettingsContext } from '../../../components/settings';
 // sections
@@ -52,7 +52,7 @@ export default function LessonPage() {
           ]}
         />
 
-        <LessonPlanView id={id} />
+        <LessonPlan id={id} />
       </Container>
     </>
   );
