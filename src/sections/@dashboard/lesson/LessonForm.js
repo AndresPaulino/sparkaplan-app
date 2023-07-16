@@ -34,7 +34,9 @@ const validationSchema = Yup.object().shape({
   lessonTitle: Yup.string()
     .min(5, 'Lesson title must be at least 5 characters long')
     .required('Lesson title is required'),
-  learningObjective: Yup.string().required('Learning objective cannot be empty'),
+  learningObjective: Yup.string()
+    .min(10, 'Learning objective must be at least 10 characters long')
+    .required('Learning objective cannot be empty'),
 });
 
 const LessonForm = () => {
