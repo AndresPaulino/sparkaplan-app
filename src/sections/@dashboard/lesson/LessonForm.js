@@ -110,8 +110,8 @@ const LessonForm = () => {
         helperText={formik.touched.learningObjective && formik.errors.learningObjective}
         sx={{ mt: 3 }}
       />
-      <LoadingButton type="submit" variant="contained" sx={{ maxWidth: '10rem', mt: 3 }}>
-        Generate Lesson
+      <LoadingButton type="submit" variant="contained" sx={{ md: { maxWidth: '10rem' }, mt: 3 }}>
+        Sparkaplan!
       </LoadingButton>
     </Box>
   );
