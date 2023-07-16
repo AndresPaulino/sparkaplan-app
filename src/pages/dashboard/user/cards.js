@@ -12,7 +12,7 @@ import DashboardLayout from '../../../layouts/dashboard';
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 // sections
-import { UserCard } from '../../../sections/@dashboard/user/cards';
+import { UserCard } from '../../../sections/@dashboard_original/user/cards';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ export default function UserCardsPage() {
   return (
     <>
       <Head>
-        <title> User: Cards | Minimal UI</title>
+        <title> User: Cards | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

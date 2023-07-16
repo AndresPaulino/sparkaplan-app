@@ -31,7 +31,7 @@ export default function DemoImagePage() {
   return (
     <>
       <Head>
-        <title> Extra Components: Image | Minimal UI</title>
+        <title> Extra Components: Image | Sparkaplan</title>
       </Head>
 
       <Box

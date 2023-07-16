@@ -2,14 +2,36 @@ import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
 // @mui
 import { styled, useTheme, alpha } from '@mui/material/styles';
-import { Box, Grid, Container, Typography, Button } from '@mui/material';
+import { Box, Grid, Container, Typography, Button, Paper } from '@mui/material';
 // utils
 import { filterStyles, textGradient, bgGradient } from '../../utils/cssStyles';
 // routes
 import { PATH_FIGMA_PREVIEW } from '../../routes/paths';
 // components
 import Iconify from '../../components/iconify';
+import Image from '../../components/image';
 import { MotionViewport, varFade } from '../../components/animate';
+
+const FEATURES = [
+  {
+    icon: ' /assets/icons/home/ic_make_brand.svg',
+    title: 'Fast and Intuitive',
+    description:
+      'With our AI-driven design, creating a comprehensive lesson plan takes just a few clicks. Save your precious time for teaching, not typing.',
+  },
+  {
+    icon: ' /assets/icons/home/ic_design.svg',
+    title: 'Creative and Flexible',
+    description:
+      'Sparkaplan adapts to your unique teaching style. Add, remove, or reorder sections in your lesson plan to suit your needs.',
+  },
+  {
+    icon: ' /assets/icons/home/ic_development.svg',
+    title: 'User-friendly',
+    description:
+      'Sparkaplan is easy to use, with a clean interface and helpful prompts guiding you every step of the way. Planning your lesson has never been simpler.  ',
+  },
+];
 
 // ----------------------------------------------------------------------
 
@@ -81,7 +103,7 @@ export default function HomeForDesigner() {
             </Grid>
 
             <Grid item md={6}>
-              <StyledContent src="/assets/images/home/for_designer.jpg" variants={varFade().in} />
+              <StyledContent src="/assets/images/services/service2.png" variants={varFade().in} />
             </Grid>
           </Grid>
         </Container>
@@ -103,7 +125,7 @@ function Description() {
     <StyledDescription>
       <m.div variants={varFade().inUp}>
         <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-          Professional Kit
+          Features
         </Typography>
       </m.div>
 
@@ -118,31 +140,45 @@ function Description() {
             ),
           }}
         >
-          For Designer
+          For Teachers
         </Typography>
       </m.div>
 
+      {/* Features Section */}
       <m.div variants={varFade().inUp}>
-        <Button
-          color="inherit"
-          size="large"
-          variant="outlined"
-          endIcon={<Iconify icon="ic:round-arrow-right-alt" />}
-          target="_blank"
-          rel="noopener"
-          href={PATH_FIGMA_PREVIEW}
-          sx={{
-            bgcolor: 'text.primary',
-            color: theme.palette.mode === 'light' ? 'common.white' : 'grey.800',
-            '&:hover': {
-              bgcolor: 'text.primary',
-            },
-          }}
-        >
-          Go to Figma Workspace
-        </Button>
+        <Grid container spacing={3}>
+          {FEATURES.map((feature) => (
+            <Grid key={feature.title} item xs={12} md={4}>
+              <Cards feature={feature} />
+            </Grid>
+          ))}
+        </Grid>
       </m.div>
     </StyledDescription>
+  );
+}
+
+function Cards({ feature }) {
+  const { icon, title, description } = feature;
+
+  return (
+    <Paper
+      variant="outlined"
+      sx={{
+        px: 3,
+        py: 5,
+        borderRadius: 2,
+        textAlign: 'center',
+        borderColor: (theme) => alpha(theme.palette.grey[500], 0.12),
+        '&:hover': {
+          boxShadow: (theme) => theme.customShadows.z24,
+        },
+      }}
+    >
+      <Typography variant="subtitle2" persistent>
+        {title}
+      </Typography>
+    </Paper>
   );
 }
 

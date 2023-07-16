@@ -41,7 +41,7 @@ import {
   TablePaginationCustom,
 } from '../../../components/table';
 // sections
-import { UserTableToolbar, UserTableRow } from '../../../sections/@dashboard/user/list';
+import { UserTableToolbar, UserTableRow } from '../../../sections/@dashboard_original/user/list';
 
 // ----------------------------------------------------------------------
 
@@ -193,7 +193,7 @@ export default function UserListPage() {
   return (
     <>
       <Head>
-        <title> User: List | Minimal UI</title>
+        <title> User: List | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

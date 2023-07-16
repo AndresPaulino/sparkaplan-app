@@ -10,7 +10,7 @@ import DashboardLayout from '../../../layouts/dashboard';
 import { useSettingsContext } from '../../../components/settings';
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 // sections
-import UserNewEditForm from '../../../sections/@dashboard/user/UserNewEditForm';
+import UserNewEditForm from '../../../sections/@dashboard_original/user/UserNewEditForm';
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ export default function UserCreatePage() {
   return (
     <>
       <Head>
-        <title> User: Create a new user | Minimal UI</title>
+        <title> User: Create a new user | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

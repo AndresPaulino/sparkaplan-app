@@ -11,19 +11,21 @@ import { MotionViewport, varFade } from '../../components/animate';
 const CARDS = [
   {
     icon: ' /assets/icons/home/ic_make_brand.svg',
-    title: 'Branding',
-    description: 'Consistent design makes it easy to brand your own.',
+    title: 'Fast and Intuitive',
+    description:
+      'With our AI-driven design, creating a comprehensive lesson plan takes just a few clicks. Save your precious time for teaching, not typing.',
   },
   {
     icon: ' /assets/icons/home/ic_design.svg',
-    title: 'UI & UX Design',
+    title: 'Creative and Flexible',
     description:
-      'The kit is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.',
+      'Sparkaplan adapts to your unique teaching style. Add, remove, or reorder sections in your lesson plan to suit your needs.',
   },
   {
     icon: ' /assets/icons/home/ic_development.svg',
-    title: 'Development',
-    description: 'Easy to customize and extend, saving you time and money.',
+    title: 'User-friendly',
+    description:
+      'Sparkaplan is easy to use, with a clean interface and helpful prompts guiding you every step of the way. Planning your lesson has never been simpler.  ',
   },
 ];
 
@@ -58,13 +60,21 @@ export default function HomeMinimal() {
         >
           <m.div variants={varFade().inUp}>
             <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
-              Minimal UI
+              Our Innovation
             </Typography>
           </m.div>
 
           <m.div variants={varFade().inDown}>
             <Typography variant="h2">
-              What minimal <br /> helps you?
+              What Makes Spark
+              <span
+                style={{
+                  color: '#FFC107',
+                }}
+              >
+                a
+              </span>
+              plan <br /> Stand Out?
             </Typography>
           </m.div>
         </Stack>

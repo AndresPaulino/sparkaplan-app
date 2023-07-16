@@ -47,7 +47,7 @@ export default function GeneralEcommercePage() {
   return (
     <>
       <Head>
-        <title> General: E-commerce | Minimal UI</title>
+        <title> General: E-commerce | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

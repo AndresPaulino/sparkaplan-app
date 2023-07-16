@@ -20,7 +20,7 @@ import {
   AccountSocialLinks,
   AccountNotifications,
   AccountChangePassword,
-} from '../../../sections/@dashboard/user/account';
+} from '../../../sections/@dashboard_original/user/account';
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ export default function UserAccountPage() {
   return (
     <>
       <Head>
-        <title> User: Account Settings | Minimal UI</title>
+        <title> User: Account Settings | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'lg'}>

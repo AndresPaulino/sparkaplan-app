@@ -9,7 +9,7 @@ export const presets = [
   // DEFAULT
   {
     name: 'default',
-    ...themePalette.primary,
+    ...themePalette.warning,
   },
   // CYAN
   {

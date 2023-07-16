@@ -250,7 +250,7 @@ export default function CalendarPage() {
   return (
     <>
       <Head>
-        <title> Calendar | Minimal UI</title>
+        <title> Calendar | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>

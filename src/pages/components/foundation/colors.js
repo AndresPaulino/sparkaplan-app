@@ -54,7 +54,7 @@ export default function FoundationColorsPage() {
   return (
     <>
       <Head>
-        <title> Foundations: Colors | Minimal UI</title>
+        <title> Foundations: Colors | Sparkaplan</title>
       </Head>
 
       <Box
