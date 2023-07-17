@@ -22,7 +22,7 @@ export default function TablePaginationCustom({
     <Box sx={{ position: 'relative', ...sx }}>
       <TablePagination rowsPerPageOptions={rowsPerPageOptions} component="div" {...other} />
 
-      {onChangeDense && (
+      {/* {onChangeDense && (
         <FormControlLabel
           label="Dense"
           control={<Switch checked={dense} onChange={onChangeDense} />}
@@ -35,7 +35,7 @@ export default function TablePaginationCustom({
             },
           }}
         />
-      )}
+      )} */}
     </Box>
   );
 }

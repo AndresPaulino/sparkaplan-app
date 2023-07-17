@@ -156,16 +156,16 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
           onClick={handleClick}
           sx={{ color: 'text.secondary', whiteSpace: 'nowrap' }}
         >
-          {fData(size)}
+          {'2nd'} {/* Grade level of the lesson plan */}
         </TableCell>
 
-        <TableCell
+        {/* <TableCell
           align="center"
           onClick={handleClick}
           sx={{ color: 'text.secondary', whiteSpace: 'nowrap' }}
         >
           {type}
-        </TableCell>
+        </TableCell> */}
 
         <TableCell
           align="left"
@@ -175,7 +175,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
           {fDate(dateModified)}
         </TableCell>
 
-        <TableCell align="right" onClick={handleClick}>
+        {/* <TableCell align="right" onClick={handleClick}>
           <AvatarGroup
             max={4}
             sx={{
@@ -193,7 +193,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
                 <Avatar key={person.id} alt={person.name} src={person.avatar} />
               ))}
           </AvatarGroup>
-        </TableCell>
+        </TableCell> */}
 
         <TableCell
           align="right"
@@ -228,10 +228,26 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
           onClick={() => {
             handleClosePopover();
             handleCopy();
+            {
+              /* TODO: Go to the lesson {id} */
+            }
           }}
         >
-          <Iconify icon="eva:link-2-fill" />
-          Copy Link
+          <Iconify icon="eva:eye-outline" />
+          View Lesson
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleClosePopover();
+            handleCopy();
+            {
+              /* TODO: Download the lesson PDF */
+            }
+          }}
+        >
+          <Iconify icon="eva:download-outline" />
+          Download PDF
         </MenuItem>
 
         <MenuItem

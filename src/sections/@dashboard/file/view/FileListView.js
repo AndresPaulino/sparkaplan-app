@@ -17,11 +17,11 @@ import FileTableRow from '../item/FileTableRow';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', align: 'left' },
-  { id: 'size', label: 'Size', align: 'left', width: 120 },
-  { id: 'type', label: 'Type', align: 'center', width: 120 },
-  { id: 'dateModified', label: 'Modified', align: 'left', width: 160 },
-  { id: 'shared', label: 'Shared', align: 'right', width: 100 },
+  { id: 'lesson Name', label: 'Lesson Name', align: 'left' },
+  { id: 'grade', label: 'Grade', align: 'left', width: 120 },
+  // { id: 'type', label: 'Type', align: 'center', width: 120 },
+  { id: 'dateCreated', label: 'Created On', align: 'left', width: 160 },
+  // { id: 'shared', label: 'Shared', align: 'right', width: 100 },
   { id: '' },
 ];
 
