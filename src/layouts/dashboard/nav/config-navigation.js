@@ -120,7 +120,7 @@ const navConfig = [
   // APP
   // ----------------------------------------------------------------------
   {
-    subheader: 'app',
+    subheader: 'Lessons',
     items: [
       // {
       //   title: 'mail',
@@ -133,6 +133,11 @@ const navConfig = [
       //   path: PATH_DASHBOARD.chat.root,
       //   icon: ICONS.chat,
       // },
+      {
+        title: 'My Lesson Plans',
+        path: PATH_DASHBOARD.myLessonPlans,
+        icon: ICONS.file,
+      },
       {
         title: 'Generate Lesson',
         path: PATH_DASHBOARD.generateLesson,

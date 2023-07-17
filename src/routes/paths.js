@@ -42,6 +42,7 @@ export const PATH_DASHBOARD = {
   permissionDenied: path(ROOTS_DASHBOARD, '/permission-denied'),
   blank: path(ROOTS_DASHBOARD, '/blank'),
   generateLesson: path(ROOTS_DASHBOARD, '/lessons/generateLesson'),
+  myLessonPlans: path(ROOTS_DASHBOARD, '/lessons/myLessonPlans'),
   general: {
     app: path(ROOTS_DASHBOARD, '/app'),
     // ecommerce: path(ROOTS_DASHBOARD, '/ecommerce'),
