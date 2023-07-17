@@ -1,0 +1,40 @@
+{
+  "title": "Introduction to Geometry and Basic Shapes",
+  "date": "2023-07-17T12:57:31-04:00",
+  "duration": "30 minutes",
+  "objective": "Introduce the class to different shapes and learn about them in a fun way",
+  "materials": [
+    "Flashcards with different shapes",
+    "Whiteboard and markers",
+    "Objects in the classroom",
+    "Worksheets for activities"
+  ],
+  "sections": [
+    {
+      "title": "Introduction",
+      "duration": "5 minutes",
+      "description": "Start the class by explaining what geometry is and why it's important. Use simple terms that second graders can understand. Briefly explain that geometry is the study of shapes and space.",
+      "instructions": "Greet the students and introduce the topic of the day - Geometry and Basic Shapes. Engage them by asking if they have heard of the term 'geometry' before and what they know about it. Provide a simple explanation about what geometry is and its importance."
+    },
+    {
+      "title": "Introduction to Basic Shapes",
+      "duration": "10 minutes",
+      "description": "Introduce different shapes using flashcards. Explain the characteristics of each shape, including the number of sides and corners. Use real-world examples to illustrate each shape.",
+      "instructions": "Present the flashcards one by one and ask the students to name the shapes. For each shape, discuss its attributes including number of sides and corners. Use objects in the classroom as real-world examples of each shape. For instance, use a window to illustrate a rectangle, a clock for a circle, etc."
+    },
+    {
+      "title": "Shape Attributes Activity",
+      "duration": "10 minutes",
+      "description": "Students work in pairs to explore different objects in the classroom and identify their shapes and attributes.",
+      "instructions": "Pair the students and ask them to find objects in the classroom that represent the different shapes discussed. They should write down the object's shape, number of sides, and number of corners. Remind them that corners are where two sides meet."
+    },
+    {
+      "title": "Worksheet Activity",
+      "duration": "5 minutes",
+      "description": "Students complete a worksheet that reinforces their understanding of shapes and their attributes.",
+      "instructions": "Distribute worksheets to the students which include various activities related to shapes. Activities can include naming the shapes, counting the number of sides and corners, and drawing shapes. Walk around the class to ensure all students are able to complete the worksheets."
+    }
+  ],
+  "assessment": "Review the worksheet answers and the students' findings from the shape attributes activity. Note any common misconceptions or errors to review in future lessons.",
+  "conclusion": "Wrap up the lesson by revisiting the importance of geometry and how it is present in our everyday life. Encourage the students to continue looking for shapes in their surroundings."
+}
