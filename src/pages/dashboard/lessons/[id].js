@@ -2,8 +2,7 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 // @mui
-import { Container } from '@mui/material';
-// redux
+import { Container, Box, Button } from '@mui/material';
 // routes
 import { PATH_DASHBOARD } from '../../../routes/paths';
 // utils
@@ -39,7 +38,12 @@ export default function LessonPage() {
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <CustomBreadcrumbs
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+          <CustomBreadcrumbs
           heading="Lesson Plan"
           links={[
             {
@@ -54,7 +58,19 @@ export default function LessonPage() {
               name: 'Lesson',
             },
           ]}
-        />
+          />
+          <Box>
+            <Button sx={{
+              mr: 2,
+            }}>
+              Edit
+            </Button>
+            <Button variant='contained'>
+              Download PDF
+            </Button>
+          </Box>
+        </Box>
+        
 
         <LessonPlan id={id} />
       </Container>

@@ -30,8 +30,8 @@ const LessonPlan = ({ id }) => {
       sx={{
         bgcolor: 'background.paper',
         borderRadius: 1,
-        boxShadow: 1,
-        py: 4,
+        boxShadow: 3,
+        py: 6,
       }}
     >
       <Container>
