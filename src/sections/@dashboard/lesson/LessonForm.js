@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {
   Box,
   TextField,
@@ -51,17 +52,31 @@ const LessonForm = () => {
     },
   };
 
-  const formik = useFormik({
-    initialValues: {
-      grade: '',
-      lessonTitle: '',
-      learningObjective: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values); // here you can send this data to the API
-    },
-  });
+ 
+const formik = useFormik({
+  initialValues: {
+    grade: '',
+    lessonTitle: '',
+    learningObjective: '',
+  },
+  validationSchema: validationSchema,
+  onSubmit: async (values, { setSubmitting, resetForm }) => {
+    setSubmitting(true);
+
+    // Use Axios to send a POST request to your backend
+    try {
+      const response = await axios.post('/generate-lesson', values);
+      console.log('Success:', response.data);
+
+      // Clear form fields
+      resetForm();
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setSubmitting(false);
+    }
+  },
+});
 
   return (
     <Box component="form" onSubmit={formik.handleSubmit}>
