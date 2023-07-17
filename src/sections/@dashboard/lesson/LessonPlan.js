@@ -50,7 +50,7 @@ const LessonPlan = ({ id }) => {
         <Typography variant="h6">Materials:</Typography>
         <List>
           {lessonPlan.materials.map((material, index) => (
-            <ListItem key={index}>{material}</ListItem>
+            <ListItem key={index}> - {material}</ListItem>
           ))}
         </List>
 

@@ -1,40 +1,40 @@
 {
-  "title": "Introduction to Geometry and Basic Shapes",
+  "title": "Understanding the Florida Everglades Ecosystem",
   "date": "2023-07-17T12:57:31-04:00",
-  "duration": "30 minutes",
-  "objective": "Introduce the class to different shapes and learn about them in a fun way",
+  "duration": "60 minutes",
+  "objective": "To understand the ecosystem of the Everglades, its importance, and its daily impact on us",
   "materials": [
-    "Flashcards with different shapes",
+    "Projector for videos or slides",
+    "Printed worksheets for activities",
     "Whiteboard and markers",
-    "Objects in the classroom",
-    "Worksheets for activities"
+    "World map"
   ],
   "sections": [
     {
-      "title": "Introduction",
+      "title": "Warm Up",
       "duration": "5 minutes",
-      "description": "Start the class by explaining what geometry is and why it's important. Use simple terms that second graders can understand. Briefly explain that geometry is the study of shapes and space.",
-      "instructions": "Greet the students and introduce the topic of the day - Geometry and Basic Shapes. Engage them by asking if they have heard of the term 'geometry' before and what they know about it. Provide a simple explanation about what geometry is and its importance."
+      "description": "An interactive session to gather prior knowledge and engage the students.",
+      "instructions": "Ask the students if they have heard about the Everglades before and to share what they know. Write their responses on the board. This will give you an idea about their prior knowledge and also spark curiosity about the topic."
     },
     {
-      "title": "Introduction to Basic Shapes",
-      "duration": "10 minutes",
-      "description": "Introduce different shapes using flashcards. Explain the characteristics of each shape, including the number of sides and corners. Use real-world examples to illustrate each shape.",
-      "instructions": "Present the flashcards one by one and ask the students to name the shapes. For each shape, discuss its attributes including number of sides and corners. Use objects in the classroom as real-world examples of each shape. For instance, use a window to illustrate a rectangle, a clock for a circle, etc."
+      "title": "Direct Instruction",
+      "duration": "15 minutes",
+      "description": "Teacher-led instruction to introduce the topic and key concepts",
+      "instructions": "Use a world map to show the location of the Everglades in Florida. Explain what an ecosystem is, and introduce the Everglades as a unique ecosystem. Use a slide show or video to visually represent the Everglades, discussing the variety of life found there, its unique water flow, and its value to both local environments and globally."
     },
     {
-      "title": "Shape Attributes Activity",
-      "duration": "10 minutes",
-      "description": "Students work in pairs to explore different objects in the classroom and identify their shapes and attributes.",
-      "instructions": "Pair the students and ask them to find objects in the classroom that represent the different shapes discussed. They should write down the object's shape, number of sides, and number of corners. Remind them that corners are where two sides meet."
+      "title": "Guided Practice",
+      "duration": "20 minutes",
+      "description": "An interactive activity to reinforce understanding and allow for teacher guidance",
+      "instructions": "Distribute worksheets that include various activities such as matching animals to their descriptions, fill in the blanks about the importance of the Everglades, and a short answer question about how the Everglades can impact daily life. Work through the first few questions as a class, then allow the students to complete the rest on their own."
     },
     {
-      "title": "Worksheet Activity",
-      "duration": "5 minutes",
-      "description": "Students complete a worksheet that reinforces their understanding of shapes and their attributes.",
-      "instructions": "Distribute worksheets to the students which include various activities related to shapes. Activities can include naming the shapes, counting the number of sides and corners, and drawing shapes. Walk around the class to ensure all students are able to complete the worksheets."
+      "title": "Individual Practice",
+      "duration": "15 minutes",
+      "description": "Independent work to allow students to apply and practice their understanding",
+      "instructions": "Ask the students to write a short paragraph on why it's important to protect the Everglades. They should use the information they've learned from the lesson and the worksheet. Allow students to share their paragraphs if time allows."
     }
   ],
-  "assessment": "Review the worksheet answers and the students' findings from the shape attributes activity. Note any common misconceptions or errors to review in future lessons.",
-  "conclusion": "Wrap up the lesson by revisiting the importance of geometry and how it is present in our everyday life. Encourage the students to continue looking for shapes in their surroundings."
+  "assessment": "Collect and review the worksheets and paragraphs to evaluate students' understanding of the Everglades ecosystem, its importance, and its daily impact. Take note of any misconceptions or errors to address in future lessons.",
+  "conclusion": "Close the lesson by summarizing the importance of the Everglades, and encourage students to continue exploring ecosystems and their importance. Remind them of the impact these systems have on our daily lives."
 }
