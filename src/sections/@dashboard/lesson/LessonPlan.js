@@ -48,23 +48,33 @@ const LessonPlan = ({ id }) => {
 
         {lessonPlan.sections.map((section, index) => (
           <Box key={index} mb={4}>
-            <Typography variant="h5">{section.title}</Typography>
+            <Typography sx={{ mb: 1 }} variant="h5">
+              {section.title}
+            </Typography>
             <Box display="flex" alignItems="center" mb={1}>
               <AccessTimeIcon sx={{ mr: 1 }} />
               <Typography>{section.duration}</Typography>
             </Box>
-            <Typography variant="subtitle1">Description:</Typography>
+            <Typography sx={{ mb: 1 }} variant="subtitle1">
+              Description:
+            </Typography>
             <Typography paragraph>{section.description}</Typography>
-            <Typography variant="subtitle1">Instructions:</Typography>
+            <Typography sx={{ mb: 1 }} variant="subtitle1">
+              Instructions:
+            </Typography>
             <Typography paragraph>{section.instructions}</Typography>
             <Divider />
           </Box>
         ))}
 
-        <Typography variant="h6">Assessment:</Typography>
+        <Typography sx={{ mb: 1 }} variant="h6">
+          Assessment:
+        </Typography>
         <Typography paragraph>{lessonPlan.assessment}</Typography>
 
-        <Typography variant="h6">Conclusion:</Typography>
+        <Typography sx={{ mb: 1 }} variant="h6">
+          Conclusion:
+        </Typography>
         <Typography paragraph>{lessonPlan.conclusion}</Typography>
       </Container>
     </Box>
