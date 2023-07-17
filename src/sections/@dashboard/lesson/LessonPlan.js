@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { Container, Box, Typography, List, ListItem, Divider } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { CalendarMonth } from '@mui/icons-material';
 
 const LessonPlan = ({ id }) => {
   const [lessonPlan, setLessonPlan] = useState({});
@@ -25,14 +26,21 @@ const LessonPlan = ({ id }) => {
   if (!lessonPlan.title) return 'Loading...';
 
   return (
-    <Box>
+    <Box
+      sx={{
+        bgcolor: 'background.paper',
+        borderRadius: 1,
+        boxShadow: 1,
+        py: 4,
+      }}
+    >
       <Container>
         <Typography variant="h4" gutterBottom>
           {lessonPlan.title}
         </Typography>
 
         <Box display="flex" alignItems="center" mb={2}>
-          <AccessTimeIcon sx={{ mr: 1 }} />
+          <CalendarMonth sx={{ mr: 1 }} />
           <Typography>{format(new Date(lessonPlan.date), 'PP')}</Typography>
         </Box>
 
