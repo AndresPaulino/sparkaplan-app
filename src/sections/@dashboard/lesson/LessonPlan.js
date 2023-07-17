@@ -33,7 +33,7 @@ const LessonPlan = ({ id }) => {
 
         <Box display="flex" alignItems="center" mb={2}>
           <AccessTimeIcon sx={{ mr: 1 }} />
-          <Typography>{format(new Date(lessonPlan.date), 'PPpp')}</Typography>
+          <Typography>{format(new Date(lessonPlan.date), 'PP')}</Typography>
         </Box>
 
         <Typography variant="h6">Objective:</Typography>

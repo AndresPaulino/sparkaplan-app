@@ -47,7 +47,11 @@ export default function LessonPage() {
               href: PATH_DASHBOARD.root,
             },
             {
-              name: 'Lesson Plan',
+              name: 'My Lesson Plans',
+              href: PATH_DASHBOARD.myLessonPlans,
+            },
+            {
+              name: 'Lesson',
             },
           ]}
         />
