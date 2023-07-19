@@ -13,7 +13,7 @@ const LessonPlan = ({ id }) => {
   useEffect(() => {
     const fetchLessonPlan = async () => {
       try {
-        const res = await axios.get(`/${id}.json`);
+        const res = await axios.get(`http://127.0.0.1:5000/api/lessons/${id}`);
         setLessonPlan(res.data);
       } catch (err) {
         console.error(err);

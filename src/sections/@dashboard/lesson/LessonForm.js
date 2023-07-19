@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import {
   Box,
   TextField,
@@ -41,6 +42,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const LessonForm = () => {
+  const router = useRouter();
+
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -58,18 +61,22 @@ const formik = useFormik({
     grade: '',
     lessonTitle: '',
     learningObjective: '',
+    user_id: 1,
   },
   validationSchema: validationSchema,
   onSubmit: async (values, { setSubmitting, resetForm }) => {
     setSubmitting(true);
 
-    // Use Axios to send a POST request to your backend
+    // Try API call to backend
     try {
-      const response = await axios.post('/generate-lesson', values);
+      const response = await axios.post('http://127.0.0.1:5000/api/generate-lesson', values);
       console.log('Success:', response.data);
 
       // Clear form fields
       resetForm();
+
+      // Redirect to the lesson page
+      router.push(`/dashboard/lessons/${response.data.id}`);
     } catch (error) {
       console.error('Error:', error);
     } finally {
