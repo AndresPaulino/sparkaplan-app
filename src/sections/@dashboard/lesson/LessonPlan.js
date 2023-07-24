@@ -1,5 +1,3 @@
-// lessonPlan.js
-
 import axios from 'axios';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
@@ -13,8 +11,10 @@ const LessonPlan = ({ id }) => {
   useEffect(() => {
     const fetchLessonPlan = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:5000/api/lessons/${id}`);
-        setLessonPlan(res.data);
+        const res = await axios.get(`http://127.0.0.1:5000/api/get-lesson/${id}`);
+        const lessonPlanData = res.data;
+        lessonPlanData.content = JSON.parse(lessonPlanData.content);
+        setLessonPlan(lessonPlanData);
       } catch (err) {
         console.error(err);
       }
@@ -23,7 +23,7 @@ const LessonPlan = ({ id }) => {
     fetchLessonPlan();
   }, [id]);
 
-  if (!lessonPlan.title) return 'Loading...';
+  if (!lessonPlan.content) return 'Loading...';
 
   return (
     <Box
@@ -36,25 +36,25 @@ const LessonPlan = ({ id }) => {
     >
       <Container>
         <Typography variant="h4" gutterBottom>
-          {lessonPlan.title}
+          {lessonPlan.content.title}
         </Typography>
 
         <Box display="flex" alignItems="center" mb={2}>
           <CalendarMonth sx={{ mr: 1 }} />
-          <Typography>{format(new Date(lessonPlan.date), 'PP')}</Typography>
+          <Typography>{format(new Date(lessonPlan.date_created), 'PP')}</Typography>
         </Box>
 
         <Typography variant="h6">Objective:</Typography>
-        <Typography paragraph>{lessonPlan.objective}</Typography>
+        <Typography paragraph>{lessonPlan.content.objective}</Typography>
 
         <Typography variant="h6">Materials:</Typography>
         <List>
-          {lessonPlan.materials.map((material, index) => (
+          {lessonPlan.content.materials.map((material, index) => (
             <ListItem key={index}> - {material}</ListItem>
           ))}
         </List>
 
-        {lessonPlan.sections.map((section, index) => (
+        {lessonPlan.content.sections.map((section, index) => (
           <Box key={index} mb={4}>
             <Typography sx={{ mb: 1 }} variant="h5">
               {section.title}
@@ -78,12 +78,12 @@ const LessonPlan = ({ id }) => {
         <Typography sx={{ mb: 1 }} variant="h6">
           Assessment:
         </Typography>
-        <Typography paragraph>{lessonPlan.assessment}</Typography>
+        <Typography paragraph>{lessonPlan.content.assessment}</Typography>
 
         <Typography sx={{ mb: 1 }} variant="h6">
           Conclusion:
         </Typography>
-        <Typography paragraph>{lessonPlan.conclusion}</Typography>
+        <Typography paragraph>{lessonPlan.content.conclusion}</Typography>
       </Container>
     </Box>
   );

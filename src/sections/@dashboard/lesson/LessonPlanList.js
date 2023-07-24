@@ -23,31 +23,10 @@ import DateRangePicker, { useDateRangePicker } from '../../../components/date-ra
 import {
   FileListView,
   FileGridView,
-  FileFilterType,
   FileFilterName,
   FileFilterButton,
-  FileChangeViewButton,
   FileNewFolderDialog,
 } from '../../../sections/@dashboard/file';
-
-// ----------------------------------------------------------------------
-
-// const FILE_TYPE_OPTIONS = [
-//   'folder',
-//   'txt',
-//   'zip',
-//   'audio',
-//   'image',
-//   'video',
-//   'word',
-//   'excel',
-//   'powerpoint',
-//   'pdf',
-//   'photoshop',
-//   'illustrator',
-// ];
-
-// ----------------------------------------------------------------------
 
 LessonPlanList.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
@@ -255,13 +234,6 @@ export default function LessonPlanList() {
                   isError={isError}
                 />
               </>
-
-              {/* <FileFilterType
-                filterType={filterType}
-                onFilterType={handleFilterType}
-                optionsType={FILE_TYPE_OPTIONS}
-                onReset={() => setFilterType([])}
-              /> */}
 
               {isFiltered && (
                 <Button
