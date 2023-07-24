@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 // next
 import Head from 'next/head';
 // @mui
@@ -55,13 +56,27 @@ export default function LessonPlanList() {
 
   const [filterName, setFilterName] = useState('');
 
-  const [tableData, setTableData] = useState(_allFiles);
+  const [tableData, setTableData] = useState([]);
 
   const [filterType, setFilterType] = useState([]);
 
   const [openConfirm, setOpenConfirm] = useState(false);
 
   const [openUploadFile, setOpenUploadFile] = useState(false);
+
+  // ----------------------------------------------------------------------
+  // Fetch lessons from the API
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:5000/api/get-all-lessons')
+      .then((response) => {
+        setTableData(response.data.lessons);
+      })
+      .catch((error) => {
+        console.log('Error fetching lesson plans:', error);
+      });
+  }, []);
+  // ----------------------------------------------------------------------
 
   const dataFiltered = applyFilter({
     inputData: tableData,
@@ -186,15 +201,15 @@ export default function LessonPlanList() {
             },
             { name: 'My Lesson Plans' },
           ]}
-        //   action={
-        //     <Button
-        //       variant="contained"
-        //       startIcon={<Iconify icon="eva:cloud-upload-fill" />}
-        //       onClick={handleOpenUploadFile}
-        //     >
-        //       Upload
-        //     </Button>
-        //   }
+          //   action={
+          //     <Button
+          //       variant="contained"
+          //       startIcon={<Iconify icon="eva:cloud-upload-fill" />}
+          //       onClick={handleOpenUploadFile}
+          //     >
+          //       Upload
+          //     </Button>
+          //   }
         />
 
         <Stack
