@@ -113,6 +113,11 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
     doubleClick: () => console.log('DOUBLE CLICK'),
   });
 
+  const handleCopy = () => {
+    enqueueSnackbar('Copied!');
+    copy(row.url);
+  };
+
   return (
     <>
       <TableRow
@@ -240,7 +245,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         <MenuItem
           onClick={() => {
             handleClosePopover();
-            handleDownloadPDF();
+            handleCopy();
             {
               /* TODO: Download the lesson PDF */
             }
@@ -248,6 +253,16 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         >
           <Iconify icon="eva:download-outline" />
           Download PDF
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleClosePopover();
+            handleCopy();
+          }}
+        >
+          <Iconify icon="eva:copy-outline" />
+          Copy Lesson
         </MenuItem>
 
         <MenuItem
@@ -289,6 +304,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         shared={shared}
         inviteEmail={inviteEmail}
         onChangeInvite={handleChangeInvite}
+        onCopyLink={handleCopy}
         onClose={() => {
           handleCloseShare();
           setInviteEmail('');
