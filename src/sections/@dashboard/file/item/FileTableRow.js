@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import Router from 'next/router';
 // @mui
 import {
   Stack,
@@ -40,7 +41,10 @@ FileTableRow.propTypes = {
 };
 
 export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }) {
-  const { name, size, type, dateModified, shared, isFavorited } = row;
+  const { lesson_title, date_created, shared, isFavorited, id, grade } = row;
+
+  console.log('this is the row data:', row);
+  console.log('this is the row id:', id);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -62,13 +66,17 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
     setFavorited(!favorited);
   };
 
-  const handleOpenDetails = () => {
-    setOpenDetails(true);
+  const handleOpenLessonId = () => {
+    Router.push(`/dashboard/lessons/${id}`);
   };
 
-  const handleCloseDetails = () => {
-    setOpenDetails(false);
-  };
+  // const handleOpenDetails = () => {
+  //   setOpenDetails(true);
+  // };
+
+  // const handleCloseDetails = () => {
+  //   setOpenDetails(false);
+  // };
 
   const handleOpenShare = () => {
     setOpenShare(true);
@@ -100,15 +108,10 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
 
   const handleClick = useDoubleClick({
     click: () => {
-      handleOpenDetails();
+      handleOpenLessonId();
     },
     doubleClick: () => console.log('DOUBLE CLICK'),
   });
-
-  const handleCopy = () => {
-    enqueueSnackbar('Copied!');
-    copy(row.url);
-  };
 
   return (
     <>
@@ -143,10 +146,10 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
 
         <TableCell onClick={handleClick}>
           <Stack direction="row" alignItems="center" spacing={2}>
-            <FileThumbnail file={type} />
+            <FileThumbnail file={'ic_file'} />
 
             <Typography noWrap variant="inherit" sx={{ maxWidth: 360, cursor: 'pointer' }}>
-              {name}
+              {lesson_title}
             </Typography>
           </Stack>
         </TableCell>
@@ -156,7 +159,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
           onClick={handleClick}
           sx={{ color: 'text.secondary', whiteSpace: 'nowrap' }}
         >
-          {'2nd'} {/* Grade level of the lesson plan */}
+          {grade}
         </TableCell>
 
         {/* <TableCell
@@ -172,7 +175,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
           onClick={handleClick}
           sx={{ color: 'text.secondary', whiteSpace: 'nowrap' }}
         >
-          {fDate(dateModified)}
+          {fDate(date_created)}
         </TableCell>
 
         {/* <TableCell align="right" onClick={handleClick}>
@@ -227,10 +230,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         <MenuItem
           onClick={() => {
             handleClosePopover();
-            handleCopy();
-            {
-              /* TODO: Go to the lesson {id} */
-            }
+            handleOpenLessonId();
           }}
         >
           <Iconify icon="eva:eye-outline" />
@@ -240,7 +240,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         <MenuItem
           onClick={() => {
             handleClosePopover();
-            handleCopy();
+            handleDownloadPDF();
             {
               /* TODO: Download the lesson PDF */
             }
@@ -274,7 +274,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         </MenuItem>
       </MenuPopover>
 
-      <FileDetailsDrawer
+      {/* <FileDetailsDrawer
         item={row}
         favorited={favorited}
         onFavorite={handleFavorite}
@@ -282,14 +282,13 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         open={openDetails}
         onClose={handleCloseDetails}
         onDelete={onDeleteRow}
-      />
+      /> */}
 
       <FileShareDialog
         open={openShare}
         shared={shared}
         inviteEmail={inviteEmail}
         onChangeInvite={handleChangeInvite}
-        onCopyLink={handleCopy}
         onClose={() => {
           handleCloseShare();
           setInviteEmail('');

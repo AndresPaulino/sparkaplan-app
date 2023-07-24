@@ -59,7 +59,7 @@ export default function FileDetailsDrawer({
 
   const [inviteEmail, setInviteEmail] = useState('');
 
-  const [tags, setTags] = useState(item.tags.slice(0, 3));
+  // const [tags, setTags] = useState(item.tags.slice(0, 3));
 
   const [toggleProperties, setToggleProperties] = useState(true);
 
@@ -132,7 +132,7 @@ export default function FileDetailsDrawer({
             <Stack spacing={1}>
               <Panel label="Tags" toggle={toggleTags} onToggle={handleToggleTags} />
 
-              {toggleTags && (
+              {/* {toggleTags && (
                 <Autocomplete
                   multiple
                   freeSolo
@@ -155,7 +155,7 @@ export default function FileDetailsDrawer({
                   }
                   renderInput={(params) => <TextField {...params} placeholder="#Add a tags" />}
                 />
-              )}
+              )} */}
             </Stack>
 
             <Stack spacing={1.5}>
