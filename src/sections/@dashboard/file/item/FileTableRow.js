@@ -115,7 +115,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
 
   const handleCopy = () => {
     enqueueSnackbar('Copied!');
-    copy(row.url);
+    copy(row.content);
   };
 
   return (
