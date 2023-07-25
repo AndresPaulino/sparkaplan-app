@@ -12,7 +12,7 @@ import { HEADER } from '../../config-global';
 // routes
 import { PATH_DOCS, PATH_AUTH } from '../../routes/paths';
 // components
-import Logo from '../../components/logo';
+import Logo from '../../components/logo/Logo';
 import Label from '../../components/label';
 //
 import NavMobile from './nav/mobile';

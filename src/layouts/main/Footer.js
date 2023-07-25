@@ -8,16 +8,16 @@ import { PATH_PAGE } from '../../routes/paths';
 // _mock
 import { _socials } from '../../_mock/arrays';
 // components
-import Logo from '../../components/logo';
+import Logo from '../../components/logo/Logo';
+import SmallLogo from '../../components/logo/SmallLogo';
 import Iconify from '../../components/iconify';
 
 // ----------------------------------------------------------------------
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'Sparkaplan',
     children: [
-      { name: 'About us', href: PATH_PAGE.about },
       { name: 'Contact us', href: PATH_PAGE.contact },
       { name: 'FAQs', href: PATH_PAGE.faqs },
     ],
@@ -32,8 +32,8 @@ const LINKS = [
   {
     headline: 'Contact',
     children: [
-      { name: 'admin@sparkaplan.com', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
+      { name: 'admin@sparkaplan.com', href: '#' }
+      // { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
     ],
   },
 ];
@@ -56,8 +56,11 @@ export default function Footer() {
       }}
     >
       <Container>
-        <Logo sx={{ mb: 1, mx: 'auto' }} />
+        <SmallLogo sx={{ mb: 1, mx: 'auto', width: '50px' }} />
 
+        <Typography variant="caption" component="div">
+          Sparkaplan
+        </Typography>
         <Typography variant="caption" component="div">
           © All rights reserved 2023
         </Typography>
@@ -95,8 +98,7 @@ export default function Footer() {
 
           <Grid item xs={8} md={3}>
             <Typography variant="body2" sx={{ pr: { md: 5 } }}>
-              The starting point for your next project with Sparkaplan Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
+              The starting point for your next lesson plan with Sparkaplan, using the latest AI technology to make your life easier.
             </Typography>
 
             <Stack
@@ -154,6 +156,15 @@ export default function Footer() {
           component="div"
           sx={{
             mt: 10,
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
+          Sparkaplan
+        </Typography>
+        <Typography
+          variant="caption"
+          component="div"
+          sx={{
             pb: 5,
             textAlign: { xs: 'center', md: 'left' },
           }}
