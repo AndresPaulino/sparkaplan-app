@@ -5,7 +5,7 @@ import { useAuthContext } from '../../../auth/useAuthContext';
 // locales
 import { useLocales } from '../../../locales';
 // routes
-import { PATH_DOCS } from '../../../routes/paths';
+import { PATH_PAGE } from '../../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -30,16 +30,16 @@ export default function NavDocs() {
 
       <div>
         <Typography gutterBottom variant="subtitle1">
-          {`${translate('docs.hi')}, ${user?.displayName}`}
+          {`Hi, ${user?.displayName}`}
         </Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
-          {`${translate('docs.description')}`}
+          Have a question or suggestion? Please contact us
         </Typography>
       </div>
 
-      <Button href={PATH_DOCS.root} target="_blank" rel="noopener" variant="contained">
-        {`${translate('docs.documentation')}`}
+      <Button href={PATH_PAGE.contact} variant="contained">
+        Contact Us
       </Button>
     </Stack>
   );
