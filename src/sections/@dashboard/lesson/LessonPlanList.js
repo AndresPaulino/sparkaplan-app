@@ -130,36 +130,56 @@ export default function LessonPlanList() {
     setFilterType(checked);
   };
 
-  const handleDeleteItem = (id) => {
-    const { page, setPage, setSelected } = table;
-    const deleteRow = tableData.filter((row) => row.id !== id);
-    setSelected([]);
-    setTableData(deleteRow);
+const handleDeleteItem = (id) => {
+  const { page, setPage, setSelected } = table;
 
-    if (page > 0) {
-      if (dataInPage.length < 2) {
-        setPage(page - 1);
+  axios
+    .delete(`http://127.0.0.1:5000/api/delete-lesson/${id}`)
+    .then((response) => {
+      const deleteRow = tableData.filter((row) => row.id !== id);
+      setSelected([]);
+      setTableData(deleteRow);
+
+      if (page > 0) {
+        if (dataInPage.length < 2) {
+          setPage(page - 1);
+        }
       }
-    }
-  };
+    })
+    .catch((error) => {
+      console.log('Error deleting lesson:', error);
+    });
+};
+
 
   const handleDeleteItems = (selected) => {
     const { page, rowsPerPage, setPage, setSelected } = table;
-    const deleteRows = tableData.filter((row) => !selected.includes(row.id));
-    setSelected([]);
-    setTableData(deleteRows);
 
-    if (page > 0) {
-      if (selected.length === dataInPage.length) {
-        setPage(page - 1);
-      } else if (selected.length === dataFiltered.length) {
-        setPage(0);
-      } else if (selected.length > dataInPage.length) {
-        const newPage = Math.ceil((tableData.length - selected.length) / rowsPerPage) - 1;
-        setPage(newPage);
-      }
-    }
+    axios
+      .delete('http://127.0.0.1:5000/api/delete-lessons', {
+        data: { ids: selected },
+      })
+      .then((response) => {
+        const deleteRows = tableData.filter((row) => !selected.includes(row.id));
+        setSelected([]);
+        setTableData(deleteRows);
+
+        if (page > 0) {
+          if (selected.length === dataInPage.length) {
+            setPage(page - 1);
+          } else if (selected.length === dataFiltered.length) {
+            setPage(0);
+          } else if (selected.length > dataInPage.length) {
+            const newPage = Math.ceil((tableData.length - selected.length) / rowsPerPage) - 1;
+            setPage(newPage);
+          }
+        }
+      })
+      .catch((error) => {
+        console.log('Error deleting lessons:', error);
+      });
   };
+
 
   const handleClearAll = () => {
     if (onResetPicker) {
@@ -337,7 +357,7 @@ function applyFilter({
 
   if (filterName) {
     inputData = inputData.filter(
-      (file) => file.name.toLowerCase().indexOf(filterName.toLowerCase()) !== -1
+      (file) => file.lesson_title.toLowerCase().indexOf(filterName.toLowerCase()) !== -1
     );
   }
 
@@ -348,8 +368,8 @@ function applyFilter({
   if (filterStartDate && filterEndDate && !isError) {
     inputData = inputData.filter(
       (file) =>
-        fTimestamp(file.dateCreated) >= fTimestamp(filterStartDate) &&
-        fTimestamp(file.dateCreated) <= fTimestamp(filterEndDate)
+        fTimestamp(file.date_created) >= fTimestamp(filterStartDate) &&
+        fTimestamp(file.date_created) <= fTimestamp(filterEndDate)
     );
   }
 
