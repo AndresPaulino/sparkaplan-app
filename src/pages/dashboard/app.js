@@ -49,7 +49,7 @@ export default function GeneralAppPage() {
   return (
     <>
       <Head>
-        <title> General: App | Sparkaplan</title>
+        <title> Dashboard | Sparkaplan</title>
       </Head>
 
       <Container maxWidth={themeStretch ? false : 'xl'}>
@@ -67,7 +67,7 @@ export default function GeneralAppPage() {
                   }}
                 />
               }
-              action={<Button variant="contained">Go Now</Button>}
+              action={<Button variant="contained">Create Lesson Plan</Button>}
             />
           </Grid>
 
@@ -75,7 +75,7 @@ export default function GeneralAppPage() {
             <AppFeatured list={_appFeatured} />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          {/* <Grid item xs={12} md={4}>
             <AppWidgetSummary
               title="Total Active Users"
               percent={2.6}
@@ -109,29 +109,27 @@ export default function GeneralAppPage() {
                 series: [8, 9, 31, 8, 16, 37, 8, 33, 46, 31],
               }}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentDownload
-              title="Current Download"
+              title="Lessons Created"
               chart={{
                 colors: [
                   theme.palette.primary.main,
                   theme.palette.info.main,
                   theme.palette.error.main,
-                  theme.palette.warning.main,
                 ],
                 series: [
-                  { label: 'Mac', value: 12244 },
-                  { label: 'Window', value: 53345 },
-                  { label: 'iOS', value: 44313 },
-                  { label: 'Android', value: 78343 },
+                  { label: '2nd Grade', value: 1 },
+                  { label: '3rd Grade', value: 3 },
+                  { label: '5th Grade', value: 2 },
                 ],
               }}
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppAreaInstalled
               title="Area Installed"
               subheader="(+43%) than last year"
@@ -155,23 +153,23 @@ export default function GeneralAppPage() {
                 ],
               }}
             />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} lg={8}>
             <AppNewInvoice
-              title="New Invoice"
+              title="My Recent Plans"
               tableData={_appInvoices}
               tableLabels={[
-                { id: 'id', label: 'Invoice ID' },
-                { id: 'category', label: 'Category' },
-                { id: 'price', label: 'Price' },
-                { id: 'status', label: 'Status' },
+                { id: 'lesson_title', label: 'Lesson Title' },
+                { id: 'grade', label: 'grade' },
+                { id: 'date_created', label: 'Created On' },
+                { id: '' },
                 { id: '' },
               ]}
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppTopRelated title="Top Related Applications" list={_appRelated} />
           </Grid>
 
@@ -204,7 +202,7 @@ export default function GeneralAppPage() {
                 }}
               />
             </Stack>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </>
