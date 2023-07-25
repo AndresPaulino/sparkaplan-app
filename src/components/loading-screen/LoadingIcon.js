@@ -1,5 +1,5 @@
 import { m } from 'framer-motion';
-import Logo from '../logo';
+import SmallLogo from '../logo/SmallLogo';
 
 export default function LoadingIcon() {
   return (
@@ -15,7 +15,7 @@ export default function LoadingIcon() {
         repeat: Infinity,
       }}
     >
-      <Logo disabledLink sx={{ width: 64, height: 64 }} />
+      <SmallLogo disabledLink sx={{ width: 64, height: 64 }} />
     </m.div>
   );
 }

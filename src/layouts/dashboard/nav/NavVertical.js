@@ -9,7 +9,7 @@ import useResponsive from '../../../hooks/useResponsive';
 // config
 import { NAV } from '../../../config-global';
 // components
-import Logo from '../../../components/logo';
+import Logo from '../../../components/logo/Logo';
 import Scrollbar from '../../../components/scrollbar';
 import { NavSectionVertical } from '../../../components/nav-section';
 //
