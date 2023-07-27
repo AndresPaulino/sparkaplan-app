@@ -57,7 +57,7 @@ export default function GeneralAppPage() {
           <Grid item xs={12} md={8}>
             <AppWelcome
               title={`Welcome back! \n ${user?.displayName}`}
-              description="If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything."
+              description="Get started by creating a new lesson plan, or by viewing your recent plans."
               img={
                 <SeoIllustration
                   sx={{

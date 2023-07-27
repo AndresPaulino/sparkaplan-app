@@ -221,9 +221,9 @@ function SeoIllustration({ ...other }) {
         </defs>
 
         <image
-          href="/assets/illustrations/characters/character_3.png"
+          href="/assets/illustrations/illustration_dashboard.png"
           height="300"
-          x="312"
+          x="0"
           y="30"
         />
       </svg>

@@ -50,7 +50,7 @@ export default function AboutWhat() {
                   <m.div variants={varFade().inUp}>
                     <Image
                       alt="our office 1"
-                      src="/assets/images/about/what_1.jpg"
+                      src="/assets/img/blog/blog-img8.jpg"
                       ratio="3/4"
                       sx={{
                         borderRadius: 2,
@@ -63,7 +63,7 @@ export default function AboutWhat() {
                   <m.div variants={varFade().inUp}>
                     <Image
                       alt="our office 2"
-                      src="/assets/images/about/what_2.jpg"
+                      src="/assets/img/services/service1.png"
                       ratio="1/1"
                       sx={{ borderRadius: 2 }}
                     />
@@ -94,7 +94,9 @@ export default function AboutWhat() {
                   color: theme.palette.mode === 'light' ? 'text.secondary' : 'common.white',
                 }}
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed doloremque aliquam tenetur tempore laboriosam necessitatibus inventore est. Unde, et deserunt voluptates sunt sit amet nobis.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed doloremque aliquam
+                tenetur tempore laboriosam necessitatibus inventore est. Unde, et deserunt
+                voluptates sunt sit amet nobis.
               </Typography>
             </m.div>
 

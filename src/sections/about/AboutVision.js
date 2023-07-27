@@ -10,17 +10,23 @@ import { MotionViewport, varFade } from '../../components/animate';
 export default function AboutVision() {
   return (
     <Container component={MotionViewport} sx={{ mt: 10 }}>
+      <m.div variants={varFade().inUp}>
+        <Typography variant="h3" sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
+          Easy to use dashboard for teachers to create, view, edit and share lesson plans.
+        </Typography>
+      </m.div>
+
       <Box
         sx={{
-          mb: 10,
+          my: 10,
           borderRadius: 2,
           overflow: 'hidden',
           position: 'relative',
         }}
       >
-        <Image src="/assets/images/about/vision.jpg" alt="about-vision" />
+        <Image src="/assets/dashboard_screenshot.png" alt="dashboard_screenshot" />
 
-        <Stack
+        {/* <Stack
           direction="row"
           flexWrap="wrap"
           alignItems="center"
@@ -44,14 +50,14 @@ export default function AboutVision() {
               />
             </m.div>
           ))}
-        </Stack>
+        </Stack> */}
       </Box>
 
-      <m.div variants={varFade().inUp}>
+      {/* <m.div variants={varFade().inUp}>
         <Typography variant="h3" sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}>
-          Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
+          Easy to use dashboard for teachers to create, view, edit and share lesson plans.
         </Typography>
-      </m.div>
+      </m.div> */}
     </Container>
   );
 }
