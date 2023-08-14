@@ -10,9 +10,11 @@ import { fPercent } from '../../utils/formatNumber';
 // _mock_
 import { _skills } from '../../_mock/arrays';
 // components
-import Image from '../../components/image';
+import Image from 'next/image';
 import Iconify from '../../components/iconify';
 import { MotionViewport, varFade } from '../../components/animate';
+// svg
+import contentIllustration from '../../assets/illustrations/svg/content.svg';
 
 // ----------------------------------------------------------------------
 
@@ -46,20 +48,18 @@ export default function AboutWhat() {
           {isDesktop && (
             <Grid item xs={12} md={6} lg={7} sx={{ pr: { md: 7 } }}>
               <Grid container spacing={3} alignItems="flex-end">
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                   <m.div variants={varFade().inUp}>
                     <Image
-                      alt="our office 1"
-                      src="/assets/img/blog/blog-img8.jpg"
-                      ratio="3/4"
+                      alt="content"
+                      src={contentIllustration}
                       sx={{
-                        borderRadius: 2,
-                        boxShadow: shadow,
+                        height: { xs: 280, sm: 320, md: 480 },
                       }}
                     />
                   </m.div>
                 </Grid>
-                <Grid item xs={6}>
+                {/* <Grid item xs={6}>
                   <m.div variants={varFade().inUp}>
                     <Image
                       alt="our office 2"
@@ -68,7 +68,7 @@ export default function AboutWhat() {
                       sx={{ borderRadius: 2 }}
                     />
                   </m.div>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
           )}
@@ -94,9 +94,12 @@ export default function AboutWhat() {
                   color: theme.palette.mode === 'light' ? 'text.secondary' : 'common.white',
                 }}
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed doloremque aliquam
-                tenetur tempore laboriosam necessitatibus inventore est. Unde, et deserunt
-                voluptates sunt sit amet nobis.
+                Sparkaplan allows you to create quick and easy lesson plans for any grade. Simply
+                create a title with a short objective description and let our AI work it's magic!
+                Now you can save, download and edit all of your lesson plans in one place.
+                <br />
+                <br />
+                We have many more features coming up!
               </Typography>
             </m.div>
 

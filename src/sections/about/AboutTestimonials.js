@@ -97,16 +97,23 @@ export default function AboutTestimonials() {
 
               <m.div variants={varFade().inUp}>
                 <Typography variant="h2" sx={{ mb: 3, color: 'common.white' }}>
-                  Who love <br />
-                  my work
+                  Why teachers love spark
+                  <span
+                    style={{
+                      color: '#FFC107',
+                    }}
+                  >
+                    a
+                  </span>
+                  plan
                 </Typography>
               </m.div>
 
               <m.div variants={varFade().inUp}>
                 <Typography sx={{ color: 'common.white' }}>
-                  Our goal is to create a product and service that you’re satisfied with and use it
-                  every day. This is why we’re constantly working on our services to make it better
-                  every day and really listen to what our users has to say.
+                  Our aim is to streamline your lesson planning process, making it not just faster,
+                  but also easier to use. Your feedback
+                  as educators is invaluable to us and we sincerely value your insights to make this application better!
                 </Typography>
               </m.div>
 

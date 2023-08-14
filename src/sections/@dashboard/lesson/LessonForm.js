@@ -1,6 +1,7 @@
-import React from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import LoadingScreen from 'src/components/loading-screen/LoadingScreen';
 import {
   Box,
   TextField,
@@ -43,6 +44,7 @@ const validationSchema = Yup.object().shape({
 
 const LessonForm = () => {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -55,35 +57,40 @@ const LessonForm = () => {
     },
   };
 
- 
-const formik = useFormik({
-  initialValues: {
-    grade: '',
-    lessonTitle: '',
-    learningObjective: '',
-    user_id: 1,
-  },
-  validationSchema: validationSchema,
-  onSubmit: async (values, { setSubmitting, resetForm }) => {
-    setSubmitting(true);
+  const formik = useFormik({
+    initialValues: {
+      grade: '',
+      lessonTitle: '',
+      learningObjective: '',
+      user_id: 1,
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
+      setSubmitting(true);
+      setIsLoading(true);
 
-    // Try API call to backend
-    try {
-      const response = await axios.post('http://127.0.0.1:5000/api/generate-lesson', values);
-      console.log('Success:', response.data);
+      // Try API call to backend
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/api/generate-lesson', values);
+        console.log('Success:', response.data);
 
-      // Clear form fields
-      resetForm();
+        // Clear form fields
+        resetForm();
 
-      // Redirect to the lesson page
-      router.push(`/dashboard/lessons/${response.data.id}`);
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setSubmitting(false);
-    }
-  },
-});
+        // Redirect to the lesson page
+        router.push(`/dashboard/lessons/${response.data.id}`);
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setSubmitting(false);
+        setIsLoading(false);
+      }
+    },
+  });
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Box component="form" onSubmit={formik.handleSubmit}>

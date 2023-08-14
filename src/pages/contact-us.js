@@ -1,5 +1,6 @@
 // next
 import Head from 'next/head';
+import Image from 'next/image';
 // @mui
 import { Container, Box } from '@mui/material';
 // layouts
@@ -8,6 +9,7 @@ import MainLayout from '../layouts/main';
 import { _mapContact } from '../_mock/arrays';
 // sections
 import { ContactHero, ContactForm, ContactMap } from '../sections/contact';
+import contactUsIllustration from '../assets/illustrations/svg/contact_us.svg';
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +24,7 @@ export default function ContactPage() {
         <title> Contact us | Sparkaplan</title>
       </Head>
 
-      <ContactHero />
+      {/* <ContactHero /> */}
 
       <Container sx={{ py: 10 }}>
         <Box
@@ -35,7 +37,17 @@ export default function ContactPage() {
         >
           <ContactForm />
 
-          <ContactMap contacts={_mapContact} />
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Image src={contactUsIllustration} alt="Contact us" width={500} height={500} />
+          </Box>
+
+          {/* <ContactMap contacts={_mapContact} /> */}
         </Box>
       </Container>
     </>
