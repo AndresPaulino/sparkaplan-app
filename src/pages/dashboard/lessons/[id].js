@@ -17,7 +17,7 @@ import { useSettingsContext } from '../../../components/settings';
 import { saveAs } from '@progress/kendo-file-saver';
 import { LessonContext } from 'src/context/LessonContext';
 import { pdf } from '@react-pdf/renderer';
-import PDFDocument from '../../../sections/@dashboard/lesson/PDF/details/LessonPDF';
+import LessonPDF from '../../../sections/@dashboard/lesson/PDF/details/LessonPDF';
 // ----------------------------------------------------------------------
 
 // ----------------------------------------------------------------------
@@ -33,7 +33,6 @@ export default function LessonPage() {
   const { lesson, fetchLessonData } = useContext(LessonContext);
 
   useEffect(() => {
-    console.log(id)
     if (id) {
       fetchLessonData(id);
     }
@@ -41,8 +40,8 @@ export default function LessonPage() {
 
   const handleDownloadPDF = async () => {
     try {
-      const blob = await pdf(<PDFDocument lessonPlan={lessonPlan} />).toBlob();
-      saveAs(blob, 'lesson-plan.pdf');
+      const blob = await pdf(<LessonPDF lesson={lesson} />).toBlob();
+      saveAs(blob, `${lesson.title}.pdf`);
     } catch (error) {
       console.error('Failed to download PDF:', error);
     }
