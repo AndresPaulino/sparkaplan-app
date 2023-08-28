@@ -28,6 +28,7 @@ import {
   FileFilterButton,
   FileNewFolderDialog,
 } from '../../../sections/@dashboard/file';
+import LessonPDF from './PDF/details/LessonPDF';
 
 LessonPlanList.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 

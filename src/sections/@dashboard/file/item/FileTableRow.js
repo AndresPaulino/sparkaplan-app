@@ -30,6 +30,11 @@ import FileThumbnail from '../../../../components/file-thumbnail';
 //
 import FileShareDialog from '../portal/FileShareDialog';
 import FileDetailsDrawer from '../portal/FileDetailsDrawer';
+// PDF
+import LessonPDF from '../../lesson/PDF/details/LessonPDF';
+import { saveAs } from '@progress/kendo-file-saver';
+import { LessonContext } from 'src/context/LessonContext';
+import { pdf } from '@react-pdf/renderer';
 
 // ----------------------------------------------------------------------
 
@@ -116,6 +121,15 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
   const handleCopy = () => {
     enqueueSnackbar('Copied!');
     copy(row.content);
+  };
+
+  const handleDownloadPDF = async () => {
+    try {
+      const blob = await pdf(<LessonPDF lesson={row} />).toBlob();
+      saveAs(blob, `${row.lesson_title}.pdf`);
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+    }
   };
 
   return (
@@ -245,10 +259,7 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
         <MenuItem
           onClick={() => {
             handleClosePopover();
-            handleCopy();
-            {
-              /* TODO: Download the lesson PDF */
-            }
+            handleDownloadPDF();
           }}
         >
           <Iconify icon="eva:download-outline" />
