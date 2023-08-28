@@ -1,35 +1,40 @@
-import { Page, View, Text, Document, StyleSheet } from '@react-pdf/renderer';
+import { Page, View, Text, Document, StyleSheet, Font } from '@react-pdf/renderer';
+
+Font.register({
+  family: 'Panton',
+  fonts: [
+    { src: '/fonts/Panton/Panton-Trial-Regular.ttf' },
+    { src: '/fonts/Panton/Panton-Trial-Bold.ttf' },
+  ],
+});
 
 const styles = StyleSheet.create({
   page: {
     padding: 30,
-    backgroundColor: '#f5f5f5',
   },
   container: {
-    padding: 30,
     backgroundColor: '#ffffff',
-    borderRadius: 10,
-    boxShadow: '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
   },
   title: {
     fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 30,
+    textAlign: 'left',
+    marginBottom: 15,
   },
   dateBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    fontSize: 8,
+    marginBottom: 15,
   },
   dateIcon: {
     marginRight: 10,
   },
   subTitle: {
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: 10,
   },
   paragraph: {
-    fontSize: 14,
+    fontSize: 8,
     marginBottom: 10,
   },
   list: {
@@ -38,9 +43,11 @@ const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
     marginBottom: 5,
+    fontSize: 8,
   },
   listBullet: {
     width: 10,
+    fontSize: 8,
   },
   divider: {
     borderBottomWidth: 1,
@@ -52,9 +59,6 @@ const styles = StyleSheet.create({
 export default function LessonPDF({ lesson = {} }) {
   // Parsing the content string into a JSON object
   const parsedContent = JSON.parse(lesson.content || '{}');
-
-  console.log('download pdf lesson: ', lesson);
-  console.log('parsedContent: ', parsedContent); // This will help ensure parsedContent is being correctly processed
 
   return (
     <Document>

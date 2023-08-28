@@ -72,7 +72,6 @@ const LessonForm = () => {
       // Try API call to backend
       try {
         const response = await axios.post('http://127.0.0.1:5000/api/generate-lesson', values);
-        console.log('Success:', response.data);
 
         // Clear form fields
         resetForm();

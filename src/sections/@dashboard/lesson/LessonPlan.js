@@ -10,7 +10,6 @@ const LessonPlan = ({ lesson }) => {
 
   useEffect(() => {
     if (!lesson || !lesson.id) return; // This check ensures that we have the lesson data before we try to fetch the lesson plan
-    console.log('lesson:', lesson);
     const fetchLessonPlan = async () => {
       try {
         const res = await axios.get(`http://127.0.0.1:5000/api/get-lesson/${lesson.id}`);
