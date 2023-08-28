@@ -5,13 +5,15 @@ import { Container, Box, Typography, List, ListItem, Divider } from '@mui/materi
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { CalendarMonth } from '@mui/icons-material';
 
-const LessonPlan = ({ id }) => {
+const LessonPlan = ({ lesson }) => {
   const [lessonPlan, setLessonPlan] = useState({});
 
   useEffect(() => {
+    if (!lesson || !lesson.id) return; // This check ensures that we have the lesson data before we try to fetch the lesson plan
+    console.log('lesson:', lesson);
     const fetchLessonPlan = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:5000/api/get-lesson/${id}`);
+        const res = await axios.get(`http://127.0.0.1:5000/api/get-lesson/${lesson.id}`);
         const lessonPlanData = res.data;
         lessonPlanData.content = JSON.parse(lessonPlanData.content);
         setLessonPlan(lessonPlanData);
@@ -21,7 +23,7 @@ const LessonPlan = ({ id }) => {
     };
 
     fetchLessonPlan();
-  }, [id]);
+  }, [lesson]);
 
   if (!lessonPlan.content) return 'Loading...';
 

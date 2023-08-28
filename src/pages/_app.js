@@ -49,6 +49,9 @@ import SnackbarProvider from '../components/snackbar';
 import { MotionLazyContainer } from '../components/animate';
 import { ThemeSettings, SettingsProvider } from '../components/settings';
 
+// Lesson Context
+import { LessonProvider } from '../context/LessonContext';
+
 // Check our docs
 // https://docs.minimals.cc/authentication/js-version
 
@@ -87,9 +90,11 @@ export default function MyApp(props) {
                   <ThemeSettings>
                     <ThemeLocalization>
                       <SnackbarProvider>
-                        <StyledChart />
-                        <ProgressBar />
-                        {getLayout(<Component {...pageProps} />)}
+                        <LessonProvider>
+                          <StyledChart />
+                          <ProgressBar />
+                          {getLayout(<Component {...pageProps} />)}
+                        </LessonProvider>
                       </SnackbarProvider>
                     </ThemeLocalization>
                   </ThemeSettings>
