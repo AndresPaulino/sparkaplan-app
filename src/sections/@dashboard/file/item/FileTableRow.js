@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import Image from 'next/image';
 import Router from 'next/router';
 // @mui
 import {
@@ -26,7 +27,7 @@ import Iconify from '../../../../components/iconify';
 import MenuPopover from '../../../../components/menu-popover';
 import { useSnackbar } from '../../../../components/snackbar';
 import ConfirmDialog from '../../../../components/confirm-dialog';
-import FileThumbnail from '../../../../components/file-thumbnail';
+// import FileThumbnail from '../../../../components/file-thumbnail';
 //
 import FileShareDialog from '../portal/FileShareDialog';
 import FileDetailsDrawer from '../portal/FileDetailsDrawer';
@@ -35,6 +36,7 @@ import LessonPDF from '../../lesson/PDF/details/LessonPDF';
 import { saveAs } from '@progress/kendo-file-saver';
 import { LessonContext } from 'src/context/LessonContext';
 import { pdf } from '@react-pdf/renderer';
+import { Box } from '@mui/system';
 
 // ----------------------------------------------------------------------
 
@@ -165,7 +167,17 @@ export default function FileTableRow({ row, selected, onSelectRow, onDeleteRow }
 
         <TableCell onClick={handleClick}>
           <Stack direction="row" alignItems="center" spacing={2}>
-            <FileThumbnail file={'ic_file'} />
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                borderRadius: 1,
+                overflow: 'hidden',
+                position: 'relative',
+              }}
+            >
+              <Image src={'/assets/icons/pdf_icon.png'} alt={lesson_title} width={40} height={40} />
+            </Box>
 
             <Typography noWrap variant="inherit" sx={{ maxWidth: 360, cursor: 'pointer' }}>
               {lesson_title}
