@@ -220,12 +220,7 @@ function SeoIllustration({ ...other }) {
           </linearGradient>
         </defs>
 
-        <image
-          href="/assets/illustrations/illustration_dashboard.png"
-          height="300"
-          x="0"
-          y="30"
-        />
+        <image href="src/assets/illustrations/svg/plan_board.svg" height="300" x="0" y="30" />
       </svg>
     </Box>
   );

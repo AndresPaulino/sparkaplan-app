@@ -32,6 +32,7 @@ import {
 } from '../../sections/@dashboard/general/app';
 // assets
 import { SeoIllustration } from '../../assets/illustrations';
+import PlanBoard from 'src/assets/illustrations/svg/plan_board.svg';
 
 // ----------------------------------------------------------------------
 
@@ -58,15 +59,7 @@ export default function GeneralAppPage() {
             <AppWelcome
               title={`Welcome back! \n ${user?.displayName}`}
               description="Get started by creating a new lesson plan, or by viewing your recent plans."
-              img={
-                <SeoIllustration
-                  sx={{
-                    p: 3,
-                    width: 360,
-                    margin: { xs: 'auto', md: 'inherit' },
-                  }}
-                />
-              }
+              img={PlanBoard}
               action={<Button variant="contained">Create Lesson Plan</Button>}
             />
           </Grid>

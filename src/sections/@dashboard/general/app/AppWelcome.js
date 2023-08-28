@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { Typography, Stack } from '@mui/material';
 // utils
 import { bgGradient } from '../../../../utils/cssStyles';
+import Image from 'next/image';
 
 // ----------------------------------------------------------------------
 
@@ -15,6 +16,7 @@ const StyledRoot = styled('div')(({ theme }) => ({
   color: theme.palette.primary.darker,
   borderRadius: Number(theme.shape.borderRadius) * 2,
   flexDirection: 'column',
+  alignItems: 'center',
   [theme.breakpoints.up('md')]: {
     flexDirection: 'row',
   },
@@ -85,7 +87,9 @@ export default function AppWelcome({ title, description, action, img, ...other }
         {action && action}
       </Stack>
 
-      {img && img}
+      <Image src={img} alt="plan board" width={280} height={280} style={{
+        marginRight: 10,
+      }} />
 
       <StyledBg />
     </StyledRoot>
