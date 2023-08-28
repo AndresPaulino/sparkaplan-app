@@ -41,7 +41,7 @@ export default function LessonPage() {
   const handleDownloadPDF = async () => {
     try {
       const blob = await pdf(<LessonPDF lesson={lesson} />).toBlob();
-      saveAs(blob, `${lesson.title}.pdf`);
+      saveAs(blob, `${lesson.lesson_title}.pdf`);
     } catch (error) {
       console.error('Failed to download PDF:', error);
     }
