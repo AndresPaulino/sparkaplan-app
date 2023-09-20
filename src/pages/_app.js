@@ -55,8 +55,8 @@ import { LessonProvider } from '../context/LessonContext';
 // Check our docs
 // https://docs.minimals.cc/authentication/js-version
 
-// import { AuthProvider } from '../auth/JwtContext';
-import { AuthProvider } from '../auth/Auth0Context';
+import { AuthProvider } from '../auth/JwtContext';
+// import { AuthProvider } from '../auth/Auth0Context';
 // import { AuthProvider } from '../auth/FirebaseContext';
 // import { AuthProvider } from '../auth/AwsCognitoContext';
 

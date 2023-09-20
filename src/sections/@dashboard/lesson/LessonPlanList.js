@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'src/utils/axios';
 // next
 import Head from 'next/head';
 // @mui
@@ -69,7 +69,7 @@ export default function LessonPlanList() {
   // Fetch lessons from the API
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:5000/api/get-all-lessons')
+      .get('/api/get-all-lessons')
       .then((response) => {
         setTableData(response.data.lessons);
       })
@@ -135,7 +135,7 @@ const handleDeleteItem = (id) => {
   const { page, setPage, setSelected } = table;
 
   axios
-    .delete(`http://127.0.0.1:5000/api/delete-lesson/${id}`)
+    .delete(`/api/delete-lesson/${id}`)
     .then((response) => {
       const deleteRow = tableData.filter((row) => row.id !== id);
       setSelected([]);
@@ -157,7 +157,7 @@ const handleDeleteItem = (id) => {
     const { page, rowsPerPage, setPage, setSelected } = table;
 
     axios
-      .delete('http://127.0.0.1:5000/api/delete-lessons', {
+      .delete('/api/delete-lessons', {
         data: { ids: selected },
       })
       .then((response) => {

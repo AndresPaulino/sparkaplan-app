@@ -65,7 +65,7 @@ export function AuthProvider({ children }) {
         clientId: AUTH0_API.clientId || '',
         domain: AUTH0_API.domain || '',
         authorizationParams: {
-          redirect_uri: window.location.origin,
+          redirect_uri: 'http://localhost:3031/auth/callback/',
         },
       });
 
@@ -115,7 +115,7 @@ export function AuthProvider({ children }) {
 
   // LOGIN
   const login = useCallback(async () => {
-    await auth0Client?.loginWithPopup();
+    await auth0Client?.loginWithRedirect();
 
     const isAuthenticated = await auth0Client?.isAuthenticated();
 
@@ -136,6 +136,36 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
+  // LOGIN WITH CREDENTIALS
+  const loginWithCredentials = useCallback(async (email, password) => {
+    try {
+      await auth0Client.loginWithRedirect({
+        redirect_uri: 'http://localhost:3031/auth/callback/',
+        realm: 'Username-Password-Authentication', // default Auth0 connection
+        username: email,
+        password,
+      });
+
+      const isAuthenticated = await auth0Client.isAuthenticated();
+      if (isAuthenticated) {
+        const user = await auth0Client.getUser();
+        dispatch({
+          type: 'LOGIN',
+          payload: {
+            user: {
+              ...user,
+              displayName: user?.name,
+              photoURL: user?.picture,
+              role: 'admin',
+            },
+          },
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
   // LOGOUT
   const logout = useCallback(() => {
     auth0Client?.logout();
@@ -152,6 +182,7 @@ export function AuthProvider({ children }) {
       method: 'auth0',
       login,
       logout,
+      loginWithCredentials,
     }),
     [state.isAuthenticated, state.isInitialized, state.user, login, logout]
   );

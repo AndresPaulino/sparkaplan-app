@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useContext } from 'react';
+import axios from 'src/utils/axios';
+import { AuthContext } from 'src/contexts/JWTContext';
 import { useRouter } from 'next/router';
 import LoadingScreen from 'src/components/loading-screen/LoadingScreen';
 import {
@@ -43,6 +44,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const LessonForm = () => {
+  const { user } = useContext(AuthContext);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,7 +64,7 @@ const LessonForm = () => {
       grade: '',
       lessonTitle: '',
       learningObjective: '',
-      user_id: 1,
+      user_id: user ? user.id : '',
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
@@ -71,7 +73,7 @@ const LessonForm = () => {
 
       // Try API call to backend
       try {
-        const response = await axios.post('http://127.0.0.1:5000/api/generate-lesson', values);
+        const response = await axios.post('/api/generate-lesson', values);
 
         // Clear form fields
         resetForm();

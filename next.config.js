@@ -3,7 +3,7 @@ module.exports = {
   trailingSlash: true,
   env: {
     // HOST
-    HOST_API_KEY: 'https://api-dev-minimal-v4.vercel.app',
+    HOST_API_KEY: 'http://127.0.0.1:5000',
     // MAPBOX
     MAPBOX_API: '',
     // FIREBASE

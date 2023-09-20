@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'src/utils/axios';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { Container, Box, Typography, List, ListItem, Divider } from '@mui/material';
@@ -12,7 +12,7 @@ const LessonPlan = ({ lesson }) => {
     if (!lesson || !lesson.id) return; // This check ensures that we have the lesson data before we try to fetch the lesson plan
     const fetchLessonPlan = async () => {
       try {
-        const res = await axios.get(`http://127.0.0.1:5000/api/get-lesson/${lesson.id}`);
+        const res = await axios.get(`/api/get-lesson/${lesson.id}`);
         const lessonPlanData = res.data;
         lessonPlanData.content = JSON.parse(lessonPlanData.content);
         setLessonPlan(lessonPlanData);

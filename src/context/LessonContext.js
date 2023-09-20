@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import axios from 'src/utils/axios';
 
 export const LessonContext = createContext();
 
@@ -7,18 +8,15 @@ export const LessonProvider = ({ children }) => {
 
   const fetchLessonData = async (id) => {
     try {
-      // Your fetch logic here
-      const response = await fetch(`http://127.0.0.1:5000/api/get-lesson/${id}`);
-      const data = await response.json();
-      setLesson(data);
+      const response = await axios.get(`/api/get-lesson/${id}`);
+      console.log('Received data:', response.data);
+      setLesson(response.data);
     } catch (error) {
-      console.error("Error fetching lesson data:", error);
+      console.error('Error fetching lesson data:', error);
     }
   };
 
   return (
-    <LessonContext.Provider value={{ lesson, fetchLessonData }}>
-      {children}
-    </LessonContext.Provider>
+    <LessonContext.Provider value={{ lesson, fetchLessonData }}>{children}</LessonContext.Provider>
   );
 };
