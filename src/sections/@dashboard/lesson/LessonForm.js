@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import axios from 'src/utils/axios';
-import { AuthContext } from 'src/contexts/JWTContext';
+import { useAuthContext } from 'src/auth/useAuthContext';
 import { useRouter } from 'next/router';
 import LoadingScreen from 'src/components/loading-screen/LoadingScreen';
 import {
@@ -44,7 +44,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const LessonForm = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
