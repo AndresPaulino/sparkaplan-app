@@ -42,6 +42,7 @@ GeneralAppPage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default function GeneralAppPage() {
   const { user } = useAuthContext();
+  console.log(user);
 
   const theme = useTheme();
 
@@ -60,7 +61,11 @@ export default function GeneralAppPage() {
               title={`Welcome back! \n ${user?.displayName}`}
               description="Get started by creating a new lesson plan, or by viewing your recent plans."
               img={PlanBoard}
-              action={<Button variant="contained">Create Lesson Plan</Button>}
+              action={
+                <Button variant="contained" href="/dashboard/lessons/generateLesson/">
+                  Create Lesson Plan
+                </Button>
+              }
             />
           </Grid>
 
