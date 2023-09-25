@@ -120,6 +120,9 @@ export function AuthProvider({ children }) {
     const { accessToken, user } = response.data;
 
     setSession(accessToken);
+    if (storageAvailable) {
+      localStorage.setItem('accessToken', accessToken);
+    }
 
     dispatch({
       type: 'LOGIN',
