@@ -103,13 +103,29 @@ export default function AboutWhat() {
               </Typography>
             </m.div>
 
-            <Box sx={{ my: 5 }}>
+            <m.div variants={varFade().inRight}>
+              <Typography
+                component="ul"
+                sx={{
+                  pl: 3,
+                  pt: 2,
+                  color: theme.palette.mode === 'light' ? 'text.secondary' : 'common.white',
+                }}
+              >
+                <li>Quiz generation</li>
+                <li>Real-time edit</li>
+                <li>PowerPoint presentation</li>
+                <li>Create lessons with state/county standards</li>
+                <li>Many more to come...</li>
+              </Typography>
+            </m.div>
+            {/* <Box sx={{ my: 5 }}>
               {_skills.map((progress) => (
                 <m.div key={progress.label} variants={varFade().inRight}>
                   <ProgressItem progress={progress} />
                 </m.div>
               ))}
-            </Box>
+            </Box> */}
           </Grid>
         </Grid>
       </Container>

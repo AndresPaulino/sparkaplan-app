@@ -16,42 +16,43 @@ import { MotionViewport, varFade } from '../../components/animate';
 
 const TESTIMONIALS = [
   {
-    name: 'Jenny Wilson',
+    name: 'Laura Anderson',
     rating: 5,
-    dateCreate: new Date(),
-    content: `Excellent Work! Thanks a lot!`,
+    dateCreate: new Date('2023-10-03'),
+    content: `Using Sparkaplan was a game-changer for me. The AI-generated lesson plans are a lifesaver for my 2nd grade class. I can focus more on teaching and less on planning.`,
   },
   {
-    name: 'Cody Fisher',
+    name: 'Robert Hernandez',
     rating: 5,
-    dateCreate: new Date(),
-    content: `It's a very good dashboard and we are really liking the product . We've done some things, like migrate to TS and implementing a react useContext api, to fit our job methodology but the product is one of the best in terms of design and application architecture. The team did a really good job.`,
+    dateCreate: new Date('2023-10-07'),
+    content: `As a high school math teacher, lesson planning was always a challenge. But now, with just a title and objective, I get a well-structured plan in seconds. Thank you!`,
   },
   {
-    name: 'Marvin McKinney',
+    name: 'Monica Sawyer',
     rating: 5,
-    dateCreate: new Date(),
-    content: `Customer support is realy fast and helpful the desgin of this theme is looks amazing also the code is very clean and readble realy good job !`,
+    dateCreate: new Date('2023-10-10'),
+    content: `Sparkaplan's AI is genuinely impressive. I was skeptical at first, but after my first few lesson plans, I was sold. It understands the needs of my 5th graders perfectly.`,
   },
   {
-    name: 'Darrell Steward',
+    name: 'Derrick White',
     rating: 5,
-    dateCreate: new Date(),
-    content: `Amazing, really good code quality and gives you a lot of examples for implementations.`,
+    dateCreate: new Date('2023-10-12'),
+    content: `The ease of use is phenomenal. With a quick input, I get a full lesson plan, saving me hours every week. I can't thank you enough.`,
   },
   {
-    name: 'Jacob Jones',
+    name: 'Samantha Greer',
     rating: 5,
-    dateCreate: new Date(),
-    content: `Got a few questions after purchasing the product. The owner responded very fast and very helpfull. Overall the code is excellent and works very good. 5/5 stars!`,
+    dateCreate: new Date('2023-10-01'),
+    content: `My fellow teachers couldn't believe how detailed and tailored the AI-generated plans were. A must-have for any educator, especially during these challenging times.`,
   },
   {
-    name: 'Bessie Cooper',
+    name: 'Brian Fletcher',
     rating: 5,
-    dateCreate: new Date(),
-    content: `CEO of Codealy.io here. We’ve built a developer assessment platform that makes sense - tasks are based on git repositories and run in virtual machines. We automate the pain points - storing candidates code, running it and sharing test results with the whole team, remotely. Bought this template as we need to provide an awesome dashboard for our early customers. I am super happy with purchase. The code is just as good as the design. Thanks!`,
+    dateCreate: new Date('2023-10-05'),
+    content: `Teaching middle school science requires a lot of meticulous planning. With Sparkaplan, I can generate lessons that are both informative and engaging. Truly a blessing.`,
   },
 ];
+
 
 const StyledRoot = styled('div')(({ theme }) => ({
   ...bgGradient({
@@ -117,13 +118,13 @@ export default function AboutTestimonials() {
                 </Typography>
               </m.div>
 
-              {!isDesktop && (
+              {/* {!isDesktop && (
                 <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
                   <m.div variants={varFade().inUp}>
                     <TestimonialLink />
                   </m.div>
                 </Box>
-              )}
+              )} */}
             </Box>
           </Grid>
 
@@ -157,13 +158,13 @@ export default function AboutTestimonials() {
           </Grid>
         </Grid>
 
-        {isDesktop && (
+        {/* {isDesktop && (
           <Box sx={{ bottom: 60, position: 'absolute' }}>
             <m.div variants={varFade().inLeft}>
               <TestimonialLink />
             </m.div>
           </Box>
-        )}
+        )} */}
       </Container>
     </StyledRoot>
   );
