@@ -3,7 +3,8 @@ module.exports = {
   trailingSlash: true,
   env: {
     // HOST
-    HOST_API_KEY: 'http://127.0.0.1:5000',
+    // HOST_API_KEY: 'http://127.0.0.1:5000',
+    HOST_API_KEY: 'https://sparkaplan-010b4c7648c3.herokuapp.com',
     // MAPBOX
     MAPBOX_API: '',
     // FIREBASE

@@ -68,8 +68,13 @@ export default function LessonPlanList() {
   // ----------------------------------------------------------------------
   // Fetch lessons from the API
   useEffect(() => {
+    const token = localStorage.getItem('accessToken'); // Retrieve the token
     axios
-      .get('/api/get-all-lessons')
+      .get('/api/get-all-lessons', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setTableData(response.data.lessons);
       })
@@ -131,34 +136,41 @@ export default function LessonPlanList() {
     setFilterType(checked);
   };
 
-const handleDeleteItem = (id) => {
-  const { page, setPage, setSelected } = table;
+  const handleDeleteItem = (id) => {
+    const { page, setPage, setSelected } = table;
 
-  axios
-    .delete(`/api/delete-lesson/${id}`)
-    .then((response) => {
-      const deleteRow = tableData.filter((row) => row.id !== id);
-      setSelected([]);
-      setTableData(deleteRow);
+    const token = localStorage.getItem('accessToken'); // Retrieve the token
+    axios
+      .delete(`/api/delete-lesson/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const deleteRow = tableData.filter((row) => row.id !== id);
+        setSelected([]);
+        setTableData(deleteRow);
 
-      if (page > 0) {
-        if (dataInPage.length < 2) {
-          setPage(page - 1);
+        if (page > 0) {
+          if (dataInPage.length < 2) {
+            setPage(page - 1);
+          }
         }
-      }
-    })
-    .catch((error) => {
-      console.log('Error deleting lesson:', error);
-    });
-};
-
+      })
+      .catch((error) => {
+        console.log('Error deleting lesson:', error);
+      });
+  };
 
   const handleDeleteItems = (selected) => {
     const { page, rowsPerPage, setPage, setSelected } = table;
-
+    const token = localStorage.getItem('accessToken'); // Retrieve the token
     axios
       .delete('/api/delete-lessons', {
         data: { ids: selected },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       .then((response) => {
         const deleteRows = tableData.filter((row) => !selected.includes(row.id));
@@ -180,7 +192,6 @@ const handleDeleteItem = (id) => {
         console.log('Error deleting lessons:', error);
       });
   };
-
 
   const handleClearAll = () => {
     if (onResetPicker) {

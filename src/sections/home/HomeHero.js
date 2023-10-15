@@ -152,21 +152,32 @@ function Description() {
 
       <m.div variants={varFade().in}>
         <Typography variant="h1" sx={{ textAlign: 'center' }}>
-          spark<span style={{
-            color: '#FFC107',
-          }}>a</span>plan
+          spark
+          <span
+            style={{
+              color: '#FFC107',
+            }}
+          >
+            a
+          </span>
+          plan
         </Typography>
       </m.div>
 
       <m.div variants={varFade().in}>
         <Typography variant="h3" sx={{ textAlign: 'center' }}>
-          Spark a Plan, <span style={{
-            color: '#FFC107',
-          }}>Ignite a Future</span>
+          Spark a Plan,{' '}
+          <span
+            style={{
+              color: '#FFC107',
+            }}
+          >
+            Ignite a Future
+          </span>
         </Typography>
       </m.div>
 
-      <m.div variants={varFade().in} style={{ margin: '2rem 0 2rem'}}>
+      <m.div variants={varFade().in} style={{ margin: '2rem 0 2rem' }}>
         <Typography variant="body2" sx={{ textAlign: 'center' }}>
           Ignite the joy of teaching! At Sparkaplan, we are committed to illuminating your
           educational journey. Our AI-powered lesson planning tool sparks creativity and saves time,
@@ -193,7 +204,12 @@ function Description() {
       </m.div> */}
 
       <m.div variants={varFade().in}>
-        <Stack spacing={1.5} alignItems='flex-start' direction={{ xs: 'column-reverse', sm: 'row' }} sx={{ mb: 5 }}>
+        <Stack
+          spacing={1.5}
+          alignItems="flex-start"
+          direction={{ xs: 'column-reverse', sm: 'row' }}
+          sx={{ mb: 5 }}
+        >
           <Stack alignItems="flex-start" spacing={2}>
             <Button
               component={NextLink}
@@ -203,14 +219,14 @@ function Description() {
               variant="contained"
               startIcon={<Iconify icon="eva:flash-fill" width={24} />}
               sx={{
-                bgcolor: 'text.primary',
-                color: (theme) => (theme.palette.mode === 'light' ? 'common.white' : 'grey.800'),
+                bgcolor: '#FFAB00',
+                color: (theme) => (theme.palette.mode === 'light' ? 'grey.800' : 'grey.800'),
                 '&:hover': {
-                  bgcolor: 'text.primary',
+                  bgcolor: '#B76D00',
                 },
               }}
             >
-              Try Now
+              Try For Free Now
             </Button>
 
             {/* <Link

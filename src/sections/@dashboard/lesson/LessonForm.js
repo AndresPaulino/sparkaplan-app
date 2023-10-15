@@ -73,7 +73,12 @@ const LessonForm = () => {
 
       // Try API call to backend
       try {
-        const response = await axios.post('/api/generate-lesson', values);
+        const token = localStorage.getItem('accessToken'); // Retrieve the token
+        const response = await axios.post('/api/generate-lesson', values, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         // Clear form fields
         resetForm();

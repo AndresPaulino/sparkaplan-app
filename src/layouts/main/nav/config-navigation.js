@@ -13,16 +13,17 @@ const navConfig = [
     icon: <Iconify icon="eva:home-fill" />,
     path: '/',
   },
+  { title: 'Contact us', path: PATH_PAGE.contact },
   // {
   //   title: 'Components',
   //   icon: <Iconify icon="ic:round-grain" />,
   //   path: PATH_PAGE.components,
   // },
-  {
-    title: 'Pricing',
-    icon: <Iconify icon="ic:round-grain" />,
-    path: PATH_PAGE.pricing,
-  },
+  // {
+  //   title: 'Pricing',
+  //   icon: <Iconify icon="ic:round-grain" />,
+  //   path: PATH_PAGE.pricing,
+  // },
   {
     title: 'Login',
     icon: <Iconify icon="ic:round-grain" />,

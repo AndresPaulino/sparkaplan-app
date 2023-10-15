@@ -19,20 +19,20 @@ const LINKS = [
     headline: 'Sparkaplan',
     children: [
       { name: 'Contact us', href: PATH_PAGE.contact },
-      { name: 'FAQs', href: PATH_PAGE.faqs },
+      // { name: 'FAQs', href: PATH_PAGE.faqs },
     ],
   },
   {
     headline: 'Legal',
     children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
+      // { name: 'Terms and Condition', href: '#' },
+      { name: 'Privacy Policy', href: '/policy' },
     ],
   },
   {
     headline: 'Contact',
     children: [
-      { name: 'admin@sparkaplan.com', href: '#' }
+      { name: 'admin@sparkaplan.com', href: 'mailto:admin@sparkaplan.com' }
       // { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
     ],
   },
