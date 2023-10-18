@@ -78,13 +78,13 @@ export default function LessonPage() {
             ]}
           />
           <Box>
-            <Button
+            {/* <Button
               sx={{
                 mr: 2,
               }}
             >
               Edit
-            </Button>
+            </Button> */}
             <Button variant="contained" onClick={handleDownloadPDF}>
               Download PDF
             </Button>

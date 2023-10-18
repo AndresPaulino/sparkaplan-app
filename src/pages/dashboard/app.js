@@ -1,5 +1,8 @@
 // next
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
+// axios
+import axios from 'src/utils/axios';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Stack, Button } from '@mui/material';
@@ -42,11 +45,33 @@ GeneralAppPage.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default function GeneralAppPage() {
   const { user } = useAuthContext();
-  console.log(user);
+
+  const [lessonPlans, setLessonPlans] = useState([]);
 
   const theme = useTheme();
 
   const { themeStretch } = useSettingsContext();
+
+
+  useEffect(() => {
+    const fetchLessonPlans = async () => {
+      try {
+        const token = localStorage.getItem('accessToken');
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await axios.get('/api/get-all-lessons', config);
+        const latestLessonPlans = response.data.lessons.slice(0, 5);
+        setLessonPlans(latestLessonPlans);
+      } catch (error) {
+        console.error('Error fetching lesson plans:', error);
+      }
+    };
+
+    fetchLessonPlans();
+  }, []);
 
   return (
     <>
@@ -54,9 +79,9 @@ export default function GeneralAppPage() {
         <title> Dashboard | Sparkaplan</title>
       </Head>
 
-      <Container maxWidth={themeStretch ? false : 'xl'}>
+      <Container maxWidth={themeStretch ? 'false' : 'xl'}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={12}>
             <AppWelcome
               title={`Welcome back! \n ${user?.displayName}`}
               description="Get started by creating a new lesson plan, or by viewing your recent plans."
@@ -69,9 +94,9 @@ export default function GeneralAppPage() {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          {/* <Grid item xs={12} md={4}>
             <AppFeatured list={_appFeatured} />
-          </Grid>
+          </Grid> */}
 
           {/* <Grid item xs={12} md={4}>
             <AppWidgetSummary
@@ -109,7 +134,7 @@ export default function GeneralAppPage() {
             />
           </Grid> */}
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentDownload
               title="Lessons Created"
               chart={{
@@ -125,7 +150,7 @@ export default function GeneralAppPage() {
                 ],
               }}
             />
-          </Grid>
+          </Grid> */}
 
           {/* <Grid item xs={12} md={6} lg={8}>
             <AppAreaInstalled
@@ -153,13 +178,13 @@ export default function GeneralAppPage() {
             />
           </Grid> */}
 
-          <Grid item xs={12} lg={8}>
+          <Grid item xs={12} lg={12}>
             <AppNewInvoice
               title="My Recent Plans"
-              tableData={_appInvoices}
+              tableData={lessonPlans}
               tableLabels={[
                 { id: 'lesson_title', label: 'Lesson Title' },
-                { id: 'grade', label: 'grade' },
+                { id: 'grade', label: 'Grade' },
                 { id: 'date_created', label: 'Created On' },
                 { id: '' },
                 { id: '' },

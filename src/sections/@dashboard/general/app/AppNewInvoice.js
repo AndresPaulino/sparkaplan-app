@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { sentenceCase } from 'change-case';
+import { fDate } from 'src/utils/formatTime';
+import { Router } from 'next/router';
 // @mui
 import {
   Box,
@@ -60,6 +62,7 @@ export default function AppNewInvoice({ title, subheader, tableData, tableLabels
           size="small"
           color="inherit"
           endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
+          href="/dashboard/lessons/myLessonPlans/"
         >
           View All
         </Button>
@@ -100,6 +103,10 @@ function AppNewInvoiceRow({ row }) {
     console.log('PRINT', row.id);
   };
 
+  const handleOpenLessonId = () => {
+    Router.push(`/dashboard/lessons/${row.id}`);
+  };
+
   const handleShare = () => {
     handleClosePopover();
     console.log('SHARE', row.id);
@@ -113,13 +120,16 @@ function AppNewInvoiceRow({ row }) {
   return (
     <>
       <TableRow>
-        <TableCell>{`INV-${row.id}`}</TableCell>
+        {/* <TableCell>{`INV-${row.id}`}</TableCell> */}
 
-        <TableCell>{row.category}</TableCell>
+        {/* <TableCell>{row.category}</TableCell> */}
 
-        <TableCell>{fCurrency(row.price)}</TableCell>
+        {/* <TableCell>{fCurrency(row.price)}</TableCell> */}
+        <TableCell>{row.lesson_title}</TableCell>
+        <TableCell>{row.grade}</TableCell>
+        <TableCell>{fDate(row.date_created)}</TableCell>
 
-        <TableCell>
+        {/* <TableCell>
           <Label
             variant="soft"
             color={
@@ -130,7 +140,7 @@ function AppNewInvoiceRow({ row }) {
           >
             {sentenceCase(row.status)}
           </Label>
-        </TableCell>
+        </TableCell> */}
 
         <TableCell align="right">
           <IconButton color={openPopover ? 'inherit' : 'default'} onClick={handleOpenPopover}>
@@ -145,14 +155,18 @@ function AppNewInvoiceRow({ row }) {
         arrow="right-top"
         sx={{ width: 160 }}
       >
+        <MenuItem
+          onClick={() => {
+            handleOpenLessonId();
+          }}
+        >
+          <Iconify icon="eva:eye-outline" />
+          View Lesson
+        </MenuItem>
+
         <MenuItem onClick={handleDownload}>
           <Iconify icon="eva:download-fill" />
           Download
-        </MenuItem>
-
-        <MenuItem onClick={handlePrint}>
-          <Iconify icon="eva:printer-fill" />
-          Print
         </MenuItem>
 
         <MenuItem onClick={handleShare}>
