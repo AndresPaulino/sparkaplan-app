@@ -21,5 +21,9 @@ module.exports = {
     // AUTH0
     AUTH0_DOMAIN: 'dev-lhzuohi2sr1mrxq7.us.auth0.com',
     AUTH0_CLIENT_ID: 'jv8EnnXooW7b4YfqFHodSIKjHgqxn4h0',
+    // EmailJs
+    EMAILJS_SERVICE_ID: 'service_3nuqg2n',
+    EMAILJS_TEMPLATE_ID: 'template_n8tj1cs',
+    EMAILJS_USER_ID: '99EkUEQCEDDNVo6oM',
   },
 };

@@ -1,44 +1,118 @@
 import { m } from 'framer-motion';
-// @mui
 import { Button, Typography, TextField, Stack } from '@mui/material';
-// components
-import { MotionViewport, varFade } from '../../components/animate';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import emailjs from '@emailjs/browser';
+import { useSnackbar } from 'src/components/snackbar';
+import { EMAILJS_API } from 'src/config-global';
 
-// ----------------------------------------------------------------------
+const validationSchema = yup.object({
+  name: yup.string().required('Name is required'),
+  email: yup.string().email('Enter a valid email').required('Email is required'),
+  subject: yup.string().required('Subject is required'),
+  message: yup.string().required('Message is required'),
+});
 
 export default function ContactForm() {
+  const { enqueueSnackbar } = useSnackbar();
+  const { serviceId, templateId, userId } = EMAILJS_API;
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values, { resetForm }) => {
+      const emailData = {
+        to_name: 'Sparkaplan Admin', // Adjust this to the desired recipient name
+        from_name: values.name,
+        message: `
+    Email: ${values.email}
+    Subject: ${values.subject}
+    Message: ${values.message}
+    `,
+      };
+
+      emailjs.send(serviceId, templateId, emailData, userId).then(
+        (response) => {
+          enqueueSnackbar('Message sent successfully!', {
+            variant: 'success',
+          });
+          resetForm({});
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        }
+      );
+    },
+  });
+
   return (
-    <Stack component={MotionViewport} spacing={5}>
-      <m.div variants={varFade().inUp}>
-        <Typography variant="h3">
-          Feel free to contact us. <br />
-          Let us know if you have any problems or any suggestions you may have!
-        </Typography>
-      </m.div>
+    <Stack component={m.div} spacing={5}>
+      <Typography variant="h3">
+        Feel free to contact us. <br />
+        Let us know if you have any problems or any suggestions you may have!
+      </Typography>
 
-      <Stack spacing={3}>
-        <m.div variants={varFade().inUp}>
-          <TextField fullWidth label="Name" />
-        </m.div>
+      <form onSubmit={formik.handleSubmit}>
+        <Stack spacing={3}>
+          <TextField
+            fullWidth
+            label="Name"
+            name="name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && formik.errors.name}
+          />
 
-        <m.div variants={varFade().inUp}>
-          <TextField fullWidth label="Email" />
-        </m.div>
+          <TextField
+            fullWidth
+            label="Email"
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
 
-        <m.div variants={varFade().inUp}>
-          <TextField fullWidth label="Subject" />
-        </m.div>
+          <TextField
+            fullWidth
+            label="Subject"
+            name="subject"
+            value={formik.values.subject}
+            onChange={formik.handleChange}
+            error={formik.touched.subject && Boolean(formik.errors.subject)}
+            helperText={formik.touched.subject && formik.errors.subject}
+          />
 
-        <m.div variants={varFade().inUp}>
-          <TextField fullWidth label="Enter your message here." multiline rows={4} />
-        </m.div>
-      </Stack>
+          <TextField
+            fullWidth
+            label="Enter your message here."
+            name="message"
+            multiline
+            rows={4}
+            value={formik.values.message}
+            onChange={formik.handleChange}
+            error={formik.touched.message && Boolean(formik.errors.message)}
+            helperText={formik.touched.message && formik.errors.message}
+          />
+        </Stack>
 
-      <m.div variants={varFade().inUp}>
-        <Button size="large" variant="contained">
+        <Button
+          type="submit"
+          size="large"
+          variant="contained"
+          sx={{
+            mt: 3,
+          }}
+        >
           Submit Now
         </Button>
-      </m.div>
+      </form>
     </Stack>
   );
 }

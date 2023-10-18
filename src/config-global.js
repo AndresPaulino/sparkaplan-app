@@ -26,6 +26,12 @@ export const AUTH0_API = {
   domain: process.env.AUTH0_DOMAIN,
 };
 
+export const EMAILJS_API = {
+  serviceId: process.env.EMAILJS_SERVICE_ID,
+  templateId: process.env.EMAILJS_TEMPLATE_ID,
+  userId: process.env.EMAILJS_USER_ID,
+}
+
 export const MAP_API = process.env.MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL
