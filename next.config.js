@@ -19,8 +19,8 @@ module.exports = {
     AWS_COGNITO_USER_POOL_ID: '',
     AWS_COGNITO_CLIENT_ID: '',
     // AUTH0
-    AUTH0_DOMAIN: 'dev-lhzuohi2sr1mrxq7.us.auth0.com',
-    AUTH0_CLIENT_ID: 'jv8EnnXooW7b4YfqFHodSIKjHgqxn4h0',
+    AUTH0_DOMAIN: '',
+    AUTH0_CLIENT_ID: '',
     // EmailJs
     EMAILJS_SERVICE_ID: 'service_3nuqg2n',
     EMAILJS_TEMPLATE_ID: 'template_n8tj1cs',
