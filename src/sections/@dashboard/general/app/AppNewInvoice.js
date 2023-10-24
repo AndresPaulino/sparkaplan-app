@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { sentenceCase } from 'change-case';
 import { fDate } from 'src/utils/formatTime';
-import { Router } from 'next/router';
+import { useRouter } from 'next/router';
 // @mui
 import {
   Box,
@@ -26,6 +26,11 @@ import Iconify from '../../../../components/iconify';
 import Scrollbar from '../../../../components/scrollbar';
 import MenuPopover from '../../../../components/menu-popover';
 import { TableHeadCustom } from '../../../../components/table';
+// PDF
+import LessonPDF from '../../lesson/PDF/details/LessonPDF';
+import { saveAs } from '@progress/kendo-file-saver';
+import { LessonContext } from 'src/context/LessonContext';
+import { pdf } from '@react-pdf/renderer';
 
 // ----------------------------------------------------------------------
 
@@ -103,8 +108,10 @@ function AppNewInvoiceRow({ row }) {
     console.log('PRINT', row.id);
   };
 
+  const router = useRouter();
+
   const handleOpenLessonId = () => {
-    Router.push(`/dashboard/lessons/${row.id}`);
+    router.push(`/dashboard/lessons/${row.id}`);
   };
 
   const handleShare = () => {
@@ -115,6 +122,15 @@ function AppNewInvoiceRow({ row }) {
   const handleDelete = () => {
     handleClosePopover();
     console.log('DELETE', row.id);
+  };
+
+  const handleDownloadPDF = async () => {
+    try {
+      const blob = await pdf(<LessonPDF lesson={row} />).toBlob();
+      saveAs(blob, `${row.lesson_title}.pdf`);
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+    }
   };
 
   return (
@@ -164,15 +180,15 @@ function AppNewInvoiceRow({ row }) {
           View Lesson
         </MenuItem>
 
-        <MenuItem onClick={handleDownload}>
+        <MenuItem onClick={handleDownloadPDF}>
           <Iconify icon="eva:download-fill" />
           Download
         </MenuItem>
 
-        <MenuItem onClick={handleShare}>
+        {/* <MenuItem onClick={handleShare}>
           <Iconify icon="eva:share-fill" />
           Share
-        </MenuItem>
+        </MenuItem> */}
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
