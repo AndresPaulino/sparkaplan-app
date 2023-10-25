@@ -40,18 +40,18 @@ export default function UserAccountPage() {
       icon: <Iconify icon="ic:round-account-box" />,
       component: <AccountGeneral />,
     },
-    {
-      value: 'billing',
-      label: 'Billing',
-      icon: <Iconify icon="ic:round-receipt" />,
-      component: (
-        <AccountBilling
-          cards={_userPayment}
-          addressBook={_userAddressBook}
-          invoices={_userInvoices}
-        />
-      ),
-    },
+    // {
+    //   value: 'billing',
+    //   label: 'Billing',
+    //   icon: <Iconify icon="ic:round-receipt" />,
+    //   component: (
+    //     <AccountBilling
+    //       cards={_userPayment}
+    //       addressBook={_userAddressBook}
+    //       invoices={_userInvoices}
+    //     />
+    //   ),
+    // },
     // {
     //   value: 'notifications',
     //   label: 'Notifications',
