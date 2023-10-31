@@ -52,6 +52,9 @@ import { ThemeSettings, SettingsProvider } from '../components/settings';
 // Lesson Context
 import { LessonProvider } from '../context/LessonContext';
 
+// Vercel Analytics
+import { Analytics } from '@vercel/analytics/react';
+
 // Check our docs
 // https://docs.minimals.cc/authentication/js-version
 
@@ -94,6 +97,7 @@ export default function MyApp(props) {
                           <StyledChart />
                           <ProgressBar />
                           {getLayout(<Component {...pageProps} />)}
+                          <Analytics />
                         </LessonProvider>
                       </SnackbarProvider>
                     </ThemeLocalization>
